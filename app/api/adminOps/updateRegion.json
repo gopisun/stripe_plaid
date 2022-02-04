@@ -1,0 +1,105 @@
+{
+  "meta": {
+    "$_POST": [
+      {
+        "type": "number",
+        "name": "tadig_id"
+      },
+      {
+        "type": "text",
+        "name": "tadig"
+      }
+    ]
+  },
+  "exec": {
+    "steps": {
+      "name": "api",
+      "module": "api",
+      "action": "send",
+      "options": {
+        "url": "https://x8ki-letl-twmt.n7.xano.io/api:wQ3tSs79/tadig/{{$_POST.tadig_id}}",
+        "method": "POST",
+        "data": {
+          "tadig": "{{$_POST.tadig}}"
+        },
+        "schema": []
+      },
+      "output": true,
+      "meta": [
+        {
+          "type": "object",
+          "name": "data",
+          "sub": [
+            {
+              "type": "number",
+              "name": "id"
+            },
+            {
+              "type": "number",
+              "name": "created_at"
+            },
+            {
+              "type": "text",
+              "name": "tadig"
+            }
+          ]
+        },
+        {
+          "type": "object",
+          "name": "headers",
+          "sub": [
+            {
+              "type": "text",
+              "name": "access-control-allow-credentials"
+            },
+            {
+              "type": "text",
+              "name": "access-control-allow-headers"
+            },
+            {
+              "type": "text",
+              "name": "access-control-allow-methods"
+            },
+            {
+              "type": "text",
+              "name": "access-control-allow-origin"
+            },
+            {
+              "type": "text",
+              "name": "access-control-max-age"
+            },
+            {
+              "type": "text",
+              "name": "content-encoding"
+            },
+            {
+              "type": "text",
+              "name": "content-type"
+            },
+            {
+              "type": "text",
+              "name": "date"
+            },
+            {
+              "type": "text",
+              "name": "strict-transport-security"
+            },
+            {
+              "type": "text",
+              "name": "x-app"
+            },
+            {
+              "type": "text",
+              "name": "x-workspace"
+            },
+            {
+              "type": "text",
+              "name": "x-xss-protection"
+            }
+          ]
+        }
+      ],
+      "outputType": "object"
+    }
+  }
+}

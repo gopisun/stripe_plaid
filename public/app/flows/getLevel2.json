@@ -1,0 +1,27 @@
+{
+  meta: {
+    $param: [
+      {type: "number", name: "agr_id"},
+      {type: "text", name: "sett_term"}
+    ]
+  },
+  exec: {
+    steps: [
+      {
+        serverConnect: {
+          url: "/api/USageOps/getSettLevel2_filter",
+          site: "GlobalRoamWeb",
+          params: {agr_id: "{{$param.agr_id}}", sett_term: "{{$param.sett_term}}"},
+          name: "sc_getLevel2",
+          output: true
+        }
+      },
+      {
+        toast.show: {
+          message: "{{sc_getLevel2.data.level2[0].agreementName+' '+sc_getLevel2.data.level2[0].sett_int1_settlement_term+'  '+sc_getLevel2.data.level2[0].sett_int1_settlement_amt+'   '+sc_getLevel2.data.level2[0].sett_int1_sett_qty}}"
+        }
+      }
+    ]
+  },
+  includeFolders: ["dmxBootstrap5Toasts"]
+}

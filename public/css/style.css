@@ -1,0 +1,81 @@
+/*css */
+:root  {
+    --offcanvas-width: 250px;
+    --topNavbarHeight: 60px;
+}
+
+.offcanvas  {
+    width:  var(--offcanvas-width)
+}
+
+.style1 {
+    height: var(--topNavbarHeight);
+    background-color: #bfbdbd
+}
+/*****
+.style2 {width: 250px
+}
+****/
+
+.table-collapse tbody tr:nth-of-type(4n+1) {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.row-mark-lightyellow {
+    background-color: rgba(rgb(210, 214, 144), green, blue, alpha);
+}
+
+.row-mark-lightgreen {
+    background-color: rgba(rgb(112, 221, 148), rgb(15, 128, 0), rgb(0, 255, 170), alpha);
+}
+
+@media (min-width: 992px)  {
+    main {
+        margin-left: var(--offcanvas-width);
+    }
+    .offcanvas  {
+        -webkit-transform: none;
+        transform: none;
+        visibility: visible !important;
+        top: var(--topNavbarHeight);
+        height: calc(100% - var(--topNavbarHeight));
+    }
+}
+
+.offcanvas-backdrop::before  {
+    display: none;
+}
+
+.offcanvas-header .btn-close {
+    visibility: hidden
+}
+
+@media (min-width: 1400px)  {
+
+.style1  {
+        background-color: #c9c5c5;
+    }
+}
+
+.style2  {
+    text-align: center;
+}
+
+.style3  {
+}
+
+.style4  {
+    margin-left: 65px;
+}
+
+.style5  {
+}
+
+.style6  {
+    font-weight: bold;
+    background-color: #e6e827;
+}
+
+.style7  {
+    background-color: #1bb7d9;
+}

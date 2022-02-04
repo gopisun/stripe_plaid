@@ -1,0 +1,54 @@
+{
+  "projectName": "GlobalRoamWeb",
+  "styleFile": "/css/style.css",
+  "assetsFolder": "/assets",
+  "designFramework": "bootstrap5",
+  "frameworks": [
+    {
+      "name": "fontawesome_5",
+      "type": "cdn"
+    },
+    {
+      "name": "bootstrap5",
+      "type": "local"
+    },
+    {
+      "name": "appConnect",
+      "type": "local"
+    }
+  ],
+  "hostingType": "docker",
+  "projectServerModel": "node",
+  "webRootFolder": "/public",
+  "useRouting": true,
+  "addBase": true,
+  "routingHandler": "node",
+  "projectLinksType": "site",
+  "targets": [
+    {
+      "name": "Development",
+      "remoteURL": "http://localhost:8100",
+      "webServerPort": 8100,
+      "webServerLang": "node",
+      "targetType": "docker",
+      "webServer": "node",
+      "NodeVersion": "12",
+      "NodeOS": "buster",
+      "NodeImageType": "slim",
+      "webLoggingMaxFiles": "5",
+      "webLoggingMaxFileSize": "10m",
+      "databaseLoggingMaxFiles": "5",
+      "databaseLoggingMaxFileSize": "10m",
+      "databaseType": "postgres",
+      "databasePort": 9906,
+      "postgresVersion": "11.1.x",
+      "postgres_rootName": "db_user",
+      "postgres_rootPassword": "ISTWApZo",
+      "postgres_databaseName": "globalroamweb",
+      "dockerTimezone": "America/New_York",
+      "noSampleData": true
+    }
+  ],
+  "activeTarget": "Development",
+  "projectType": "web"
+}

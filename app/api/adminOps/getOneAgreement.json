@@ -1,0 +1,141 @@
+{
+  "meta": {
+    "$_GET": [
+      {
+        "type": "number",
+        "name": "agreement_id"
+      }
+    ]
+  },
+  "exec": {
+    "steps": {
+      "name": "api",
+      "module": "api",
+      "action": "send",
+      "options": {
+        "url": "https://x8ki-letl-twmt.n7.xano.io/api:OtQOpsHt/discountagreement/{{$_GET.agreement_id}}",
+        "schema": []
+      },
+      "output": true,
+      "meta": [
+        {
+          "type": "object",
+          "name": "data",
+          "sub": [
+            {
+              "type": "number",
+              "name": "id"
+            },
+            {
+              "type": "number",
+              "name": "created_at"
+            },
+            {
+              "type": "text",
+              "name": "agreementName"
+            },
+            {
+              "type": "text",
+              "name": "agreementType"
+            },
+            {
+              "type": "text",
+              "name": "startDate"
+            },
+            {
+              "type": "text",
+              "name": "endDate"
+            },
+            {
+              "type": "text",
+              "name": "tax"
+            },
+            {
+              "type": "text",
+              "name": "author"
+            },
+            {
+              "type": "text",
+              "name": "currency"
+            },
+            {
+              "type": "text",
+              "name": "autoProlongation"
+            },
+            {
+              "type": "number",
+              "name": "operator1"
+            },
+            {
+              "type": "number",
+              "name": "operator2"
+            },
+            {
+              "type": "text",
+              "name": "originalContractId"
+            },
+            {
+              "type": "text",
+              "name": "frmkAgrContrId"
+            },
+            {
+              "type": "text",
+              "name": "dateSigned"
+            }
+          ]
+        },
+        {
+          "type": "object",
+          "name": "headers",
+          "sub": [
+            {
+              "type": "text",
+              "name": "access-control-allow-credentials"
+            },
+            {
+              "type": "text",
+              "name": "access-control-allow-headers"
+            },
+            {
+              "type": "text",
+              "name": "access-control-allow-methods"
+            },
+            {
+              "type": "text",
+              "name": "access-control-allow-origin"
+            },
+            {
+              "type": "text",
+              "name": "access-control-max-age"
+            },
+            {
+              "type": "text",
+              "name": "content-encoding"
+            },
+            {
+              "type": "text",
+              "name": "content-type"
+            },
+            {
+              "type": "text",
+              "name": "date"
+            },
+            {
+              "type": "text",
+              "name": "strict-transport-security"
+            },
+            {
+              "type": "text",
+              "name": "x-app"
+            },
+            {
+              "type": "text",
+              "name": "x-xss-protection"
+            }
+          ]
+        }
+      ],
+      "outputType": "object"
+    }
+  }
+}

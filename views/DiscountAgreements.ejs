@@ -1,0 +1,133 @@
+<!-- Wappler include head-page="layouts/admin" fontawesome_5="cdn" bootstrap5="local" is="dmx-app" id="DiscountAgreements" appConnect="local" components="{dmxBootstrap5TableGenerator:{},dmxDataTraversal:{},dmxFormatter:{}}" -->
+<dmx-data-detail id="data_detail_ddDiscStmt" dmx-bind:data="data_detail_scAllAgree.data._ds_of_da" key="id"></dmx-data-detail>
+<dmx-data-detail id="data_detail_scAllAgree" dmx-bind:data="serverconnectAllAgreements.data.api.data" key="id"></dmx-data-detail>
+<dmx-serverconnect id="serverconnectAllAgreements" url="/api/adminOps/getAllAgreements"></dmx-serverconnect>
+<meta name="ac:route" content="/DiscountAgreements">
+<div class="container">
+    <div class="row">
+        <div class="col mt-2 mb-2 ms-2 me-2">
+            <h4>Discount Agreement</h4>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="mt-2 mb-2 col-12">
+            <div class="table-responsive">
+                <table class="table table-striped table-bordered table-sm">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Created at</th>
+                            <th>Agreement name</th>
+                            <th>Agreement type</th>
+                            <th>Start date</th>
+                            <th>End date</th>
+                            <th>Tax</th>
+                            <th>Author</th>
+                            <th>Currency</th>
+                            <th>Auto prolongation</th>
+                            <th>Operator1</th>
+                            <th>Operator2</th>
+                            <th>Original contract</th>
+                            <th>Frmk agr contr</th>
+                            <th>Date signed</th>
+                        </tr>
+                    </thead>
+                    <tbody is="dmx-repeat" dmx-generator="bs5table" dmx-bind:repeat="serverconnectAllAgreements.data.api.data" id="tableRepeat1">
+                        <tr dmx-on:click="data_detail_scAllAgree.select(id)" dmx-class:bg-primary="(id == data_detail_scAllAgree.data.id)" dmx-class:text-light="(id == data_detail_scAllAgree.data.id)">
+                            <td dmx-text="id"></td>
+                            <td dmx-text="created_at"></td>
+                            <td dmx-text="agreementName"></td>
+                            <td dmx-text="agreementType">
+                                <dmx-data-detail id="data_detail_scAllAgree" dmx-bind:data="serverconnectAllAgreements.data.api.data"></dmx-data-detail>
+                            </td>
+                            <td dmx-text="startDate"></td>
+                            <td dmx-text="endDate"></td>
+                            <td dmx-text="tax"></td>
+                            <td dmx-text="author"></td>
+                            <td dmx-text="currency"></td>
+                            <td dmx-text="autoProlongation"></td>
+                            <td dmx-text="operator1"></td>
+                            <td dmx-text="operator2"></td>
+                            <td dmx-text="originalContractId"></td>
+                            <td dmx-text="frmkAgrContrId"></td>
+                            <td dmx-text="dateSigned"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="mt-2 mb-2 col-12">
+            <div class="table-responsive" dmx-show="data_detail_scAllAgree.data">
+                <table class="table table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Created at</th>
+                            <th>Discountagreement</th>
+                            <th>H tadig</th>
+                            <th>V tadig</th>
+                            <th>Service</th>
+                            <th>Start date</th>
+                            <th>End date</th>
+                            <th>Status</th>
+                            <th>Revenue commitment</th>
+                            <th>Volume commitment</th>
+                            <th>Currency</th>
+                            <th>Tax</th>
+                        </tr>
+                    </thead>
+                    <tbody is="dmx-repeat" dmx-generator="bs5table" dmx-bind:repeat="data_detail_scAllAgree.data._ds_of_da" id="tableRepeat2">
+                        <tr dmx-on:click="data_detail_ddDiscStmt.select(id)" dmx-class:bg-primary="(id == data_detail_ddDiscStmt.data.id)" dmx-class:text-light="(id == data_detail_ddDiscStmt.data.id)">
+                            <td dmx-text="id"></td>
+                            <td dmx-text="created_at"></td>
+                            <td dmx-text="discountagreement_id"></td>
+                            <td dmx-text="h_tadig"></td>
+                            <td dmx-text="v_tadig"></td>
+                            <td dmx-text="service"></td>
+                            <td dmx-text="startDate"></td>
+                            <td dmx-text="endDate"></td>
+                            <td dmx-text="status"></td>
+                            <td dmx-text="revenueCommitment"></td>
+                            <td dmx-text="volumeCommitment"></td>
+                            <td dmx-text="currency"></td>
+                            <td dmx-text="tax"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col-12 mt-2 mb-2">
+            <div class="table-responsive" dmx-show="data_detail_ddDiscStmt.data">
+                <table class="table table-striped table-bordered table-sm">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Created at</th>
+                            <th>Discstatement</th>
+                            <th>Model type</th>
+                            <th>Amount</th>
+                            <th>Rate</th>
+                            <th>From level</th>
+                            <th>To level</th>
+                            <th>Increment</th>
+                        </tr>
+                    </thead>
+                    <tbody is="dmx-repeat" dmx-generator="bs5table" dmx-bind:repeat="data_detail_ddDiscStmt.data._rm_of_ds" id="tableRepeat3">
+                        <tr>
+                            <td dmx-text="id"></td>
+                            <td dmx-text="created_at"></td>
+                            <td dmx-text="discstatement_id"></td>
+                            <td dmx-text="modelType"></td>
+                            <td dmx-text="amount"></td>
+                            <td dmx-text="rate"></td>
+                            <td dmx-text="fromLevel"></td>
+                            <td dmx-text="toLevel"></td>
+                            <td dmx-text="increment"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

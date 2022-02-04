@@ -1,0 +1,303 @@
+{
+  "name": "api",
+  "module": "api",
+  "action": "send",
+  "options": {
+    "url": "https://x8ki-letl-twmt.n7.xano.io/api:OtQOpsHt/sett_int1_level1",
+    "schema": []
+  },
+  "output": true,
+  "meta": [
+    {
+      "type": "array",
+      "name": "data",
+      "sub": [
+        {
+          "type": "number",
+          "name": "sett_int1_agreement_id"
+        },
+        {
+          "type": "text",
+          "name": "sett_int1_settlement_term"
+        },
+        {
+          "type": "number",
+          "name": "sett_int1_sett_qty"
+        },
+        {
+          "type": "number",
+          "name": "sett_int1_settlement_amt"
+        },
+        {
+          "type": "text",
+          "name": "agreementName"
+        },
+        {
+          "type": "array",
+          "name": "level2",
+          "sub": [
+            {
+              "type": "number",
+              "name": "sett_int1_agreement_id"
+            },
+            {
+              "type": "number",
+              "name": "sett_int1_h_tadig_id"
+            },
+            {
+              "type": "number",
+              "name": "sett_int1_v_tadig_id"
+            },
+            {
+              "type": "text",
+              "name": "sett_int1_settlement_term"
+            },
+            {
+              "type": "number",
+              "name": "sett_int1_sett_qty"
+            },
+            {
+              "type": "number",
+              "name": "sett_int1_settlement_amt"
+            },
+            {
+              "type": "object",
+              "name": "h_tadig",
+              "sub": [
+                {
+                  "type": "text",
+                  "name": "tadig"
+                }
+              ]
+            },
+            {
+              "type": "object",
+              "name": "v_tadig",
+              "sub": [
+                {
+                  "type": "text",
+                  "name": "tadig"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "name": "agreementName"
+            },
+            {
+              "type": "array",
+              "name": "level3",
+              "sub": [
+                {
+                  "type": "number",
+                  "name": "sett_int1_agreement_id"
+                },
+                {
+                  "type": "number",
+                  "name": "sett_int1_disc_stmt_id"
+                },
+                {
+                  "type": "number",
+                  "name": "sett_int1_h_tadig_id"
+                },
+                {
+                  "type": "number",
+                  "name": "sett_int1_v_tadig_id"
+                },
+                {
+                  "type": "number",
+                  "name": "sett_int1_roam_svc_id"
+                },
+                {
+                  "type": "text",
+                  "name": "sett_int1_settlement_term"
+                },
+                {
+                  "type": "number",
+                  "name": "sett_int1_sett_qty"
+                },
+                {
+                  "type": "number",
+                  "name": "sett_int1_settlement_amt"
+                },
+                {
+                  "type": "object",
+                  "name": "h_tadig",
+                  "sub": [
+                    {
+                      "type": "text",
+                      "name": "tadig"
+                    }
+                  ]
+                },
+                {
+                  "type": "object",
+                  "name": "v_tadig",
+                  "sub": [
+                    {
+                      "type": "text",
+                      "name": "tadig"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "name": "serviceName"
+                },
+                {
+                  "type": "text",
+                  "name": "agreementName"
+                },
+                {
+                  "type": "array",
+                  "name": "level4",
+                  "sub": [
+                    {
+                      "type": "number",
+                      "name": "id"
+                    },
+                    {
+                      "type": "number",
+                      "name": "created_at"
+                    },
+                    {
+                      "type": "number",
+                      "name": "h_tadig_id"
+                    },
+                    {
+                      "type": "number",
+                      "name": "v_tadig_id"
+                    },
+                    {
+                      "type": "number",
+                      "name": "roam_svc_id"
+                    },
+                    {
+                      "type": "number",
+                      "name": "agreement_id"
+                    },
+                    {
+                      "type": "number",
+                      "name": "disc_stmt_id"
+                    },
+                    {
+                      "type": "number",
+                      "name": "rating_model_id"
+                    },
+                    {
+                      "type": "number",
+                      "name": "settlement_amt"
+                    },
+                    {
+                      "type": "number",
+                      "name": "sett_qty"
+                    },
+                    {
+                      "type": "text",
+                      "name": "settlement_term"
+                    },
+                    {
+                      "type": "object",
+                      "name": "h_tadig",
+                      "sub": [
+                        {
+                          "type": "text",
+                          "name": "tadig"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "object",
+                      "name": "v_tadig",
+                      "sub": [
+                        {
+                          "type": "text",
+                          "name": "tadig"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "name": "agreementName"
+                    },
+                    {
+                      "type": "text",
+                      "name": "serviceName"
+                    },
+                    {
+                      "type": "text",
+                      "name": "modelType"
+                    },
+                    {
+                      "type": "number",
+                      "name": "amount"
+                    },
+                    {
+                      "type": "number",
+                      "name": "rate"
+                    },
+                    {
+                      "type": "number",
+                      "name": "fromLevel"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "object",
+      "name": "headers",
+      "sub": [
+        {
+          "type": "text",
+          "name": "access-control-allow-credentials"
+        },
+        {
+          "type": "text",
+          "name": "access-control-allow-headers"
+        },
+        {
+          "type": "text",
+          "name": "access-control-allow-methods"
+        },
+        {
+          "type": "text",
+          "name": "access-control-allow-origin"
+        },
+        {
+          "type": "text",
+          "name": "access-control-max-age"
+        },
+        {
+          "type": "text",
+          "name": "content-encoding"
+        },
+        {
+          "type": "text",
+          "name": "content-type"
+        },
+        {
+          "type": "text",
+          "name": "date"
+        },
+        {
+          "type": "text",
+          "name": "strict-transport-security"
+        },
+        {
+          "type": "text",
+          "name": "x-app"
+        },
+        {
+          "type": "text",
+          "name": "x-xss-protection"
+        }
+      ]
+    }
+  ],
+  "outputType": "object"
+}

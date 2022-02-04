@@ -1,0 +1,129 @@
+{
+  "meta": {
+    "$_POST": [
+      {
+        "type": "number",
+        "fieldName": "17",
+        "name": "roamSvcId"
+      },
+      {
+        "type": "text",
+        "name": "svcName"
+      },
+      {
+        "type": "text",
+        "name": "svcDesc"
+      },
+      {
+        "type": "text",
+        "name": "destGrp"
+      },
+      {
+        "type": "text",
+        "name": "callType"
+      }
+    ]
+  },
+  "exec": {
+    "steps": {
+      "name": "api",
+      "module": "api",
+      "action": "send",
+      "options": {
+        "url": "https://x8ki-letl-twmt.n7.xano.io/api:wQ3tSs79/roamservice/{{$_POST.roamSvcId}}",
+        "method": "POST",
+        "data": {
+          "serviceName": "{{$_POST.svcName}}",
+          "call_type": "{{$_POST.callType}}",
+          "description": "{{$_POST.svcDesc}}",
+          "destination_group": "{{$_POST.destGrp}}"
+        },
+        "schema": []
+      },
+      "output": true,
+      "meta": [
+        {
+          "type": "object",
+          "name": "data",
+          "sub": [
+            {
+              "type": "number",
+              "name": "id"
+            },
+            {
+              "type": "number",
+              "name": "created_at"
+            },
+            {
+              "type": "text",
+              "name": "serviceName"
+            },
+            {
+              "type": "text",
+              "name": "description"
+            },
+            {
+              "type": "text",
+              "name": "call_type"
+            },
+            {
+              "type": "text",
+              "name": "destination_group"
+            }
+          ]
+        },
+        {
+          "type": "object",
+          "name": "headers",
+          "sub": [
+            {
+              "type": "text",
+              "name": "access-control-allow-credentials"
+            },
+            {
+              "type": "text",
+              "name": "access-control-allow-headers"
+            },
+            {
+              "type": "text",
+              "name": "access-control-allow-methods"
+            },
+            {
+              "type": "text",
+              "name": "access-control-allow-origin"
+            },
+            {
+              "type": "text",
+              "name": "access-control-max-age"
+            },
+            {
+              "type": "text",
+              "name": "content-encoding"
+            },
+            {
+              "type": "text",
+              "name": "content-type"
+            },
+            {
+              "type": "text",
+              "name": "date"
+            },
+            {
+              "type": "text",
+              "name": "strict-transport-security"
+            },
+            {
+              "type": "text",
+              "name": "x-app"
+            },
+            {
+              "type": "text",
+              "name": "x-xss-protection"
+            }
+          ]
+        }
+      ],
+      "outputType": "object"
+    }
+  }
+}

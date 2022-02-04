@@ -1,0 +1,18 @@
+{
+  "direct": true,
+  "type": "postgres",
+  "connection": {
+    "host": "localhost",
+    "port": 9906,
+    "user": "db_user",
+    "password": "ISTWApZo",
+    "database": "globalroamweb"
+  },
+  "schema": {
+    "tables": {},
+    "views": {},
+    "schemas": [
+      "public"
+    ]
+  }
+}

@@ -1,0 +1,276 @@
+<!-- Wappler include head-page="layouts/admin" fontawesome_5="cdn" bootstrap5="local" is="dmx-app" id="Settlements" appConnect="local" components="{dmxBootstrap5TableGenerator:{},dmxFormatter:{}}" -->
+<dmx-serverconnect id="sc_l1" url="/api/USageOps/getSettLevel1"></dmx-serverconnect>
+<script is="dmx-flow" id="flow_getLevel2" type="text/dmx-flow" src="/app/flows/getLevel2.json" dmx-param:agr_id="tableRepeat2[0].sett_int1_agreement_id" dmx-param:sett_term="tableRepeat2[0].sett_int1_settlement_term"></script>
+<meta name="ac:route" content="/Settlements">
+<dmx-serverconnect id="serverconnect_levelOne" url="/api/USageOps/getSettLevel1"></dmx-serverconnect>
+<dmx-serverconnect id="serverconnect_levelTwo" url="/api/USageOps/getSettLevel2_filter" dmx-param:agr_id="tableRepeat2[0].sett_int1_agreement_id" dmx-param:sett_term="tableRepeat2[0].sett_int1_settlement_term"></dmx-serverconnect>
+<div class="container mt-2 mb-2">
+    <div class="row">
+        <div class="col">
+            <div class="table-responsive">
+                <table class="table table-collapse table-bordered border-primary">
+                    <thead class="style7 table-secondary">
+                        <tr>
+                            <th scope="row"></th>
+                            <th>Sett int1 agreement</th>
+                            <th>Sett int1 settlement term</th>
+                            <th>Sett int1 sett qty</th>
+                            <th>Sett int1 settlement amt</th>
+                            <th>Agreement name</th>
+                        </tr>
+                    </thead>
+                    <tbody is="dmx-repeat" dmx-generator="bs5table" dmx-bind:repeat="serverconnect_levelOne.data.api.data" id="tableRepeat_level1">
+                        <tr>
+                            <td><button id="btn1_showLevel2" class="btn" wappler-empty="Editable" wappler-command="editContent" data-bs-toggle="collapse" dmx-bind:data-bs-target="'#collapseLevel2'+$index"><i class="fas fa-angle-right"></i></button></td>
+                            <td dmx-text="sett_int1_agreement_id"></td>
+                            <td dmx-text="sett_int1_settlement_term"></td>
+                            <td dmx-text="sett_int1_sett_qty"></td>
+                            <td dmx-text="sett_int1_settlement_amt"></td>
+                            <td dmx-text="agreementName"></td>
+                        </tr>
+                        <tr class="collapse" dmx-bind:id="'collapseLevel2'+$index">
+                            <td></td>
+                            <td colspan="9">
+                                <div class="container-fluid">
+                                    <div class="table-responsive">
+                                        <table class="table table-collapse table-bordered table-sm border-success">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="row"></th>
+                                                    <th>Agmt name</th>
+                                                    <th>Sett term</th>
+                                                    <th>H tadig</th>
+                                                    <th>V tadig</th>
+                                                    <th>Sett qty</th>
+                                                    <th>Sett amt</th>
+
+
+
+                                                </tr>
+                                            </thead>
+                                            <tbody is="dmx-repeat" dmx-generator="bs5table" dmx-bind:repeat="level2" id="tableRepeat2">
+                                                <tr>
+                                                    <td><button id="btn1_showLevel3" class="btn" wappler-empty="Editable" wappler-command="editContent" data-bs-toggle="collapse" dmx-bind:data-bs-target="'#collapseLevel3'+$index"><i class="fas fa-angle-right"></i></button></td>
+                                                    <td dmx-text="agreementName"></td>
+                                                    <td dmx-text="sett_int1_settlement_term"></td>
+                                                    <td dmx-text="h_tadig.tadig"></td>
+                                                    <td dmx-text="v_tadig.tadig"></td>
+                                                    <td dmx-text="sett_int1_sett_qty"></td>
+                                                    <td dmx-text="sett_int1_settlement_amt"></td>
+
+
+
+                                                </tr>
+                                                <tr dmx-bind:id="'collapseLevel3'+$index" class="collapse">
+                                                    <td></td>
+                                                    <td colspan="9">
+                                                        <div class="container">
+                                                            <div class="table-responsive">
+                                                                <table class="table table-striped table-bordered table-sm">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th scope="row"></th>
+                                                                            <th>H tadig</th>
+                                                                            <th>V tadig</th>
+                                                                            <th>Service name</th>
+                                                                            <th>Sett Qty</th>
+                                                                            <th>Sett Amount</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody is="dmx-repeat" dmx-generator="bs5table" dmx-bind:repeat="level3" id="tableRepeat_level3">
+                                                                        <tr>
+                                                                            <td><button id="btn_showLevel4" class="btn" wappler-empty="Editable" wappler-command="editContent" data-bs-toggle="collapse" dmx-bind:data-bs-target="'#collapseLevel4'+$index"><i class="fas fa-angle-right"></i></button></td>
+                                                                            <td dmx-text="h_tadig.tadig"></td>
+                                                                            <td dmx-text="v_tadig.tadig"></td>
+                                                                            <td dmx-text="serviceName"></td>
+                                                                            <td dmx-text="sett_int1_sett_qty"></td>
+                                                                            <td dmx-text="sett_int1_settlement_amt"></td>
+                                                                        </tr>
+                                                                        <tr dmx-bind:id="'collapseLevel4'+$index">
+                                                                            <td></td>
+                                                                            <td colspan="9">
+                                                                                <div class="container">
+                                                                                    <div class="table-responsive">
+                                                                                        <table class="table table-striped table-bordered table-sm">
+                                                                                            <thead>
+                                                                                                <tr>
+                                                                                                    <th>Rating model</th>
+                                                                                                    <th>Settlement amt</th>
+                                                                                                    <th>Sett qty</th>
+                                                                                                    <th>Service name</th>
+                                                                                                    <th>Model type</th>
+                                                                                                    <th>Fixed Amount</th>
+                                                                                                    <th>Rate</th>
+                                                                                                    <th>From level</th>
+                                                                                                </tr>
+                                                                                            </thead>
+                                                                                            <tbody is="dmx-repeat" dmx-generator="bs5table" dmx-bind:repeat="level4" id="tableRepeat4">
+                                                                                                <tr>
+                                                                                                    <td dmx-text="rating_model_id"></td>
+                                                                                                    <td dmx-text="settlement_amt"></td>
+                                                                                                    <td dmx-text="sett_qty"></td>
+                                                                                                    <td dmx-text="serviceName"></td>
+                                                                                                    <td dmx-text="modelType"></td>
+                                                                                                    <td dmx-text="amount"></td>
+                                                                                                    <td dmx-text="rate"></td>
+                                                                                                    <td dmx-text="fromLevel"></td>
+                                                                                                </tr>
+                                                                                            </tbody>
+                                                                                        </table>
+                                                                                    </div>
+                                                                                </div>
+
+                                                                            </td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+
+
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--
+<div class="container">
+    <div class="table-responsive">
+        <table class="table table-striped table-bordered table-sm">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Created at</th>
+                    <th>H tadig</th>
+                    <th>V tadig</th>
+                    <th>Roam svc</th>
+                    <th>Agreement</th>
+                    <th>Disc stmt</th>
+                    <th>Rating model</th>
+                    <th>Settlement amt</th>
+                    <th>Sett qty</th>
+                    <th>Settlement term</th>
+                    <th>H tadig</th>
+                    <th>V tadig</th>
+                    <th>Agreement name</th>
+                    <th>Service name</th>
+                    <th>Model type</th>
+                    <th>Amount</th>
+                    <th>Rate</th>
+                    <th>From level</th>
+                </tr>
+            </thead>
+            <tbody is="dmx-repeat" dmx-generator="bs5table" dmx-bind:repeat="tableRepeat_level1[0].tableRepeat2[0].tableRepeat_level3[0].level4" id="tableRepeat1">
+                <tr>
+                    <td dmx-text="id"></td>
+                    <td dmx-text="created_at"></td>
+                    <td dmx-text="h_tadig_id"></td>
+                    <td dmx-text="v_tadig_id"></td>
+                    <td dmx-text="roam_svc_id"></td>
+                    <td dmx-text="agreement_id"></td>
+                    <td dmx-text="disc_stmt_id"></td>
+                    <td dmx-text="rating_model_id"></td>
+                    <td dmx-text="settlement_amt"></td>
+                    <td dmx-text="sett_qty"></td>
+                    <td dmx-text="settlement_term"></td>
+                    <td dmx-text="h_tadig"></td>
+                    <td dmx-text="v_tadig"></td>
+                    <td dmx-text="agreementName"></td>
+                    <td dmx-text="serviceName"></td>
+                    <td dmx-text="modelType"></td>
+                    <td dmx-text="amount"></td>
+                    <td dmx-text="rate"></td>
+                    <td dmx-text="fromLevel"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+-->
+
+<!--
+<div class="container">
+    <div class="table-responsive">
+        <table class="table table-striped table-bordered table-sm">
+            <thead>
+                <tr>
+                    <th>Sett int1 agreement</th>
+                    <th>Sett int1 disc stmt</th>
+                    <th>Sett int1 h tadig</th>
+                    <th>Sett int1 v tadig</th>
+                    <th>Sett int1 roam svc</th>
+                    <th>Sett int1 settlement term</th>
+                    <th>Sett int1 sett qty</th>
+                    <th>Sett int1 settlement amt</th>
+                    <th>H tadig</th>
+                    <th>V tadig</th>
+                    <th>Service name</th>
+                    <th>Agreement name</th>
+                </tr>
+            </thead>
+            <tbody is="dmx-repeat" dmx-generator="bs5table" dmx-bind:repeat="tableRepeat_level1[0].tableRepeat2[0].level3" id="tableRepeat3">
+                <tr>
+                    <td dmx-text="sett_int1_agreement_id"></td>
+                    <td dmx-text="sett_int1_disc_stmt_id"></td>
+                    <td dmx-text="sett_int1_h_tadig_id"></td>
+                    <td dmx-text="sett_int1_v_tadig_id"></td>
+                    <td dmx-text="sett_int1_roam_svc_id"></td>
+                    <td dmx-text="sett_int1_settlement_term"></td>
+                    <td dmx-text="sett_int1_sett_qty"></td>
+                    <td dmx-text="sett_int1_settlement_amt"></td>
+                    <td dmx-text="h_tadig"></td>
+                    <td dmx-text="v_tadig"></td>
+                    <td dmx-text="serviceName"></td>
+                    <td dmx-text="agreementName"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+-->
+
+<!--
+<div class="container">
+    
+<div class="table-responsive">
+        <table class="table table-striped table-bordered table-sm">
+            <thead>
+                <tr>
+                    <th>Sett int1 agreement</th>
+                    <th>Sett int1 h tadig</th>
+                    <th>Sett int1 v tadig</th>
+                    <th>Sett int1 settlement term</th>
+                    <th>Sett int1 sett qty</th>
+                    <th>Sett int1 settlement amt</th>
+                    <th>H tadig</th>
+                    <th>V tadig</th>
+                    <th>Agreement name</th>
+                </tr>
+            </thead>
+            <tbody is="dmx-repeat" dmx-generator="bs5table" dmx-bind:repeat="serverconnect_levelOne.data.api.data[0].level2" id="tableRepeat3">
+                <tr>
+                    <td dmx-text="sett_int1_agreement_id"></td>
+                    <td dmx-text="sett_int1_h_tadig_id"></td>
+                    <td dmx-text="sett_int1_v_tadig_id"></td>
+                    <td dmx-text="sett_int1_settlement_term"></td>
+                    <td dmx-text="sett_int1_sett_qty"></td>
+                    <td dmx-text="sett_int1_settlement_amt"></td>
+                    <td dmx-text="h_tadig.tadig"></td>
+                    <td dmx-text="v_tadig.tadig"></td>
+                    <td dmx-text="agreementName"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+-->

@@ -1,0 +1,100 @@
+<!-- Wappler include head-page="layouts/admin" fontawesome_5="cdn" bootstrap5="local" is="dmx-app" id="operators" appconnect="local" components="{dmxBootstrap5TableGenerator:{},dmxFormatter:{},dmxBootstrap5Modal:{},dmxDataTraversal:{}}" dmx-show="data_detailTelco.data" -->
+<div class="modal" id="modal1" is="dmx-bs5-modal" tabindex="-1">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"><i class="far fa-plus-square"></i>&nbsp; Add Operator</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col">
+                            <form is="dmx-serverconnect-form" id="serverconnectform1" method="post" action="/api/adminOps/addTelco" dmx-generator="bootstrap5" dmx-form-type="horizontal" dmx-on:success="serverconnect1.load();modal1.hide()">
+                                <div class="mb-3 row">
+                                    <label for="inp_telcoName" class="col-sm-2 col-form-label">Operator</label>
+                                    <div class="col-sm-7 offset-2">
+                                        <input type="text" class="form-control" id="inp_telcoName" name="telcoName" aria-describedby="inp_telcoName_help" placeholder="Enter Telco name">
+                                    </div>
+                                </div>
+                                <div class="mb-3 row">
+                                    <label for="inp_headquarters" class="col-sm-2 col-form-label">Headquarters</label>
+                                    <div class="col-sm-7 offset-2">
+                                        <input type="text" class="form-control" id="inp_headquarters" name="headquarters" aria-describedby="inp_headquarters_help" placeholder="Enter Headquarters">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" dmx-on:click="serverconnectform1.submit()">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+<dmx-serverconnect id="serverconnect1" url="/api/adminOps/getTelcos"></dmx-serverconnect>
+<dmx-data-detail id="data_detailTelco" dmx-bind:data="serverconnect1.data.api.data" key="id"></dmx-data-detail>
+<meta name="ac:route" content="/operators">
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h4 class="text-start">This is Operators page</h4>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col">
+            <button id="btnAddOperator" class="btn btn-primary" dmx-on:click="modal1.show()">Add Operator</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="mt-4 mb-4 ms-2 me-2 col">
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Created at</th>
+                            <th>Telco name</th>
+                            <th>Headquarters</th>
+                        </tr>
+                    </thead>
+                    <tbody is="dmx-repeat" dmx-generator="bs5table" dmx-bind:repeat="serverconnect1.data.api.data" id="tableRepeat1">
+                        <tr dmx-on:click="data_detailTelco.select(id)" dmx-class:bg-primary="(id == data_detailTelco.data.id)" dmx-class:text-light="(id == data_detailTelco.data.id)">
+                            <td dmx-text="id"></td>
+                            <td dmx-text="(created_at / 1000).toDate().formatDate('dd-MMM-yyyy HH:mm:ss')"></td>
+                            <td dmx-text="telcoName"></td>
+                            <td dmx-text="headquarters"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col">
+            <div class="col mt-4 mb-4 ms-2 me-2" dmx-show="data_detailTelco.data">
+
+                <form is="dmx-serverconnect-form" id="serverconnectform2" method="post" action="/api/adminOps/updateTelco" dmx-generator="bootstrap5" dmx-form-type="horizontal" dmx-populate="data_detailTelco.data" dmx-on:success="serverconnect1.load({});serverconnectform2.reset()">
+                    <input type="hidden" name="telco_id" id="inp_id" dmx-bind:value="data_detailTelco.data.id">
+                    <div class="mb-3 row">
+                        <label for="inp_telcoName" class="col-sm-2 col-form-label">Telco name</label>
+                        <div class="col-sm-8 offset-2">
+                            <input type="text" class="form-control" id="inp_telcoName" name="telcoName" dmx-bind:value="data_detailTelco.data.telcoName" aria-describedby="inp_telcoName_help" placeholder="Enter Telco name">
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="inp_headquarters" class="col-sm-2 col-form-label">Headquarters</label>
+                        <div class="col-sm-8 offset-2">
+                            <input type="text" class="form-control" id="inp_headquarters" name="headquarters" dmx-bind:value="data_detailTelco.data.headquarters" aria-describedby="inp_headquarters_help" placeholder="Enter Headquarters">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <button id="btnUpdateTelco" class="btn align-self-baseline btn-primary" dmx-on:click="serverconnectform2.submit()" dmx-show="data_detailTelco.data">Update</button>
+            <button id="btn1Clear" class="btn btn-secondary" dmx-show="data_detailTelco.data" dmx-on:click="data_detailTelco.select(0)">Clear</button>
+        </div>
+
+    </div>
+</div>

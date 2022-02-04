@@ -1,0 +1,58 @@
+<!-- Wappler include head-page="layouts/admin" fontawesome_5="cdn" bootstrap5="local" is="dmx-app" id="regions" appConnect="local" components="{dmxBootstrap5TableGenerator:{},dmxDataTraversal:{},dmxFormatter:{},dmxBootstrap5Toasts:{}}" -->
+<div is="dmx-bs5-toasts" id="toasts1" dmx-on:click="toasts1.clear()"></div>
+<dmx-data-detail id="dd_region" dmx-bind:data="serverconnect3.data.api.data" key="id"></dmx-data-detail>
+<dmx-serverconnect id="serverconnect3" url="/api/adminOps/getRegions"></dmx-serverconnect>
+<meta name="ac:route" content="/regions">
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h4>This is regions page</h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <button id="btnAddRegion" class="btn btn-primary">Add Region</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="mt-4 mb-4 ms-2 me-2 col">
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Created at</th>
+                            <th>Tadig</th>
+                        </tr>
+                    </thead>
+                    <tbody is="dmx-repeat" dmx-generator="bs5table" dmx-bind:repeat="serverconnect3.data.api.data" id="tableRepeat2">
+                        <tr dmx-on:click="dd_region.select(id);toasts1.show({message: 'Table row clicked'})" dmx-class:bg-primary="(id == dd_region.data.id)">
+                            <td dmx-text="id"></td>
+                            <td dmx-text="created_at"></td>
+                            <td dmx-text="tadig"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col">
+            <div class="col mt-4 mb-4 ms-2 me-2" dmx-show="dd_region.data">
+                <form is="dmx-serverconnect-form" id="serverconnectform1" method="post" action="/api/adminOps/updateRegion" dmx-generator="bootstrap5" dmx-form-type="horizontal" dmx-populate="dd_region.data" dmx-on:success="serverconnect3.load();dd_region.select(0)">
+                    <input type="hidden" name="tadig_id" id="inp_regionId" dmx-bind:value="dd_region.data.id">
+                    <div class="mb-3 row">
+                        <label for="inp_tadig" class="col-sm-2 col-form-label">Tadig</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="inp_tadig" name="tadig" dmx-bind:value="dd_region.data.tadig" aria-describedby="inp_tadig_help" placeholder="Enter Tadig">
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <div class="col-sm-10 text-end">
+                            <button type="submit" class="btn btn-primary" dmx-bind:value="dd_region.data.Save">Save</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,45 @@
+{
+  "routes": [
+    {
+      "path": "/",
+      "page": "index",
+      "routeType": "page",
+      "layout": "main"
+    },
+    {
+      "path": "/admin_index",
+      "page": "admin_index",
+      "layout": "admin"
+    },
+    {
+      "path": "/operators",
+      "page": "operators",
+      "layout": "admin"
+    },
+    {
+      "path": "/services",
+      "page": "services",
+      "layout": "admin"
+    },
+    {
+      "path": "/regions",
+      "page": "regions",
+      "layout": "admin"
+    },
+    {
+      "path": "/DiscountAgreements",
+      "page": "DiscountAgreements",
+      "layout": "admin"
+    },
+    {
+      "path": "/Settlements",
+      "page": "Settlements",
+      "layout": "admin"
+    },
+    {
+      "path": "/MasterDetailrough",
+      "page": "MasterDetailrough",
+      "layout": "admin"
+    }
+  ]
+}

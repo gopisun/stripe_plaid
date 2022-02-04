@@ -1,0 +1,30 @@
+{
+  "admin_index.ejs": {
+    "layoutPage": "admin",
+    "description": ""
+  },
+  "operators.ejs": {
+    "layoutPage": "admin",
+    "description": ""
+  },
+  "services.ejs": {
+    "layoutPage": "admin",
+    "description": ""
+  },
+  "regions.ejs": {
+    "layoutPage": "admin",
+    "description": ""
+  },
+  "DiscountAgreements.ejs": {
+    "layoutPage": "admin",
+    "description": ""
+  },
+  "Settlements.ejs": {
+    "layoutPage": "admin",
+    "description": ""
+  },
+  "MasterDetailrough.ejs": {
+    "layoutPage": "admin",
+    "description": ""
+  }
+}

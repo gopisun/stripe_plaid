@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+
+<head>
+    <base href="/">
+    <script src="/dmxAppConnect/dmxAppConnect.js"></script>
+    <meta charset="UTF-8">
+    <title>Global Roaming Settlements</title>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="/bootstrap/5/css/bootstrap.min.css" />
+    <script src="/dmxAppConnect/dmxRouting/dmxRouting.js" defer=""></script>
+    <link rel="stylesheet" href="/css/style.css" />
+    <script src="/dmxAppConnect/dmxBootstrap5Navigation/dmxBootstrap5Navigation.js" defer=""></script>
+    <script src="/dmxAppConnect/dmxDataTraversal/dmxDataTraversal.js" defer=""></script>
+    <script src="/dmxAppConnect/dmxBootstrap5Offcanvas/dmxBootstrap5Offcanvas.js"></script>
+    <link rel="stylesheet" href="/dmxAppConnect/dmxBootstrap5TableGenerator/dmxBootstrap5TableGenerator.css" />
+    <script src="/dmxAppConnect/dmxFormatter/dmxFormatter.js" defer=""></script>
+    <script src="/dmxAppConnect/dmxBootstrap5Modal/dmxBootstrap5Modal.js" defer=""></script>
+    <script src="/dmxAppConnect/dmxBootstrap5Toasts/dmxBootstrap5Toasts.js" defer=""></script>
+</head>
+
+<body is="dmx-app" id="admin">
+
+    <div class="offcanvas offcanvas-start style2" id="offcanvas1" is="dmx-bs5-offcanvas" tabindex="-1">
+        <div class="offcanvas-header">
+        </div>
+        <div class="offcanvas-body">
+            <div class="row">
+                <div class="col">
+                    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                        <div class="navbar-nav flex-column">
+                            <a class="nav-item nav-link" href="#">Dashboard</a>
+                            <a class="nav-item nav-link active" href="/operators" internal>Operators</a>
+                            <a class="nav-item nav-link" href="/regions" internal>Regions</a>
+                            <a class="nav-item nav-link" href="/services" internal>Services</a>
+                            <a class="nav-item nav-link" href="/DiscountAgreements" internal>Discount Agreement</a>
+                            <a class="nav-item nav-link" href="#">Settlements</a>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <header class="style1" id="headerAdmin">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col">
+                    <div class="d-flex justify-content-between">
+                        <button id="btn1" class="btn" dmx-on:click="offcanvas1.show()"><i class="fas fa-align-justify fa-lg"></i></button>
+                        <h1 class="h4 style2 text-center">Global Roaming Settlements Admin Page</h1>
+                        <button id="btn2" class="btn">Logout</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div is="dmx-view" id="content">
+            <%- await include(content, locals); %>
+        </div>
+    </main>
+
+    <script src="/bootstrap/5/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
