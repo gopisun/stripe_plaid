@@ -1,0 +1,288 @@
+{
+  "meta": {
+    "options": {
+      "linkedFile": "/views/services2.ejs",
+      "linkedForm": "serverconnectform3"
+    },
+    "$_POST": [
+      {
+        "type": "array",
+        "name": "record",
+        "sub": [
+          {
+            "type": "number",
+            "fieldName": "record[{{$index}}][id]",
+            "options": {
+              "rules": {
+                "core:number": {}
+              }
+            },
+            "name": "id"
+          },
+          {
+            "type": "number",
+            "fieldName": "record[{{$index}}][created_at]",
+            "options": {
+              "rules": {
+                "core:number": {}
+              }
+            },
+            "name": "created_at"
+          },
+          {
+            "type": "text",
+            "fieldName": "record[{{$index}}][serviceName]",
+            "name": "serviceName"
+          },
+          {
+            "type": "text",
+            "fieldName": "record[{{$index}}][description]",
+            "name": "description"
+          },
+          {
+            "type": "text",
+            "fieldName": "record[{{$index}}][call_type]",
+            "name": "call_type"
+          },
+          {
+            "type": "text",
+            "fieldName": "record[{{$index}}][destination_group]",
+            "name": "destination_group"
+          }
+        ]
+      }
+    ]
+  },
+  "exec": {
+    "steps": [
+      {
+        "name": "inpArr",
+        "module": "core",
+        "action": "setvalue",
+        "options": {
+          "value": "{{$_POST.record}}"
+        },
+        "meta": [
+          {
+            "name": "id",
+            "type": "number"
+          },
+          {
+            "name": "created_at",
+            "type": "number"
+          },
+          {
+            "name": "serviceName",
+            "type": "text"
+          },
+          {
+            "name": "description",
+            "type": "text"
+          },
+          {
+            "name": "call_type",
+            "type": "text"
+          },
+          {
+            "name": "destination_group",
+            "type": "text"
+          }
+        ],
+        "outputType": "array",
+        "output": true
+      },
+      {
+        "name": "record_repeat",
+        "module": "core",
+        "action": "repeat",
+        "options": {
+          "repeat": "{{$_POST.record}}",
+          "exec": {
+            "steps": {
+              "name": "record_insert",
+              "module": "dbupdater",
+              "action": "insert",
+              "options": {
+                "connection": "GlobalRoam",
+                "sql": {
+                  "type": "insert",
+                  "values": [
+                    {
+                      "table": "services",
+                      "column": "id",
+                      "type": "number",
+                      "value": "{{id}}"
+                    },
+                    {
+                      "table": "services",
+                      "column": "grp_id",
+                      "type": "text",
+                      "value": "{{description}}"
+                    },
+                    {
+                      "table": "services",
+                      "column": "call_type",
+                      "type": "text",
+                      "value": "{{call_type}}"
+                    },
+                    {
+                      "table": "services",
+                      "column": "dest_grp",
+                      "type": "text",
+                      "value": "{{destination_group}}"
+                    },
+                    {
+                      "table": "services",
+                      "column": "svc_name",
+                      "type": "text",
+                      "value": "{{serviceName}}"
+                    }
+                  ],
+                  "table": "services",
+                  "returning": "kid",
+                  "query": "INSERT INTO services\n(id, grp_id, call_type, dest_grp, svc_name) VALUES (:P1 /* {{id}} */, :P2 /* {{description}} */, :P3 /* {{call_type}} */, :P4 /* {{destination_group}} */, :P5 /* {{serviceName}} */)",
+                  "params": [
+                    {
+                      "name": ":P1",
+                      "type": "expression",
+                      "value": "{{id}}"
+                    },
+                    {
+                      "name": ":P2",
+                      "type": "expression",
+                      "value": "{{description}}"
+                    },
+                    {
+                      "name": ":P3",
+                      "type": "expression",
+                      "value": "{{call_type}}"
+                    },
+                    {
+                      "name": ":P4",
+                      "type": "expression",
+                      "value": "{{destination_group}}"
+                    },
+                    {
+                      "name": ":P5",
+                      "type": "expression",
+                      "value": "{{serviceName}}"
+                    }
+                  ]
+                }
+              },
+              "meta": [
+                {
+                  "name": "identity",
+                  "type": "text"
+                },
+                {
+                  "name": "affected",
+                  "type": "number"
+                }
+              ],
+              "disabled": true
+            }
+          }
+        },
+        "meta": [
+          {
+            "name": "$index",
+            "type": "number"
+          },
+          {
+            "name": "$number",
+            "type": "number"
+          },
+          {
+            "name": "$name",
+            "type": "text"
+          },
+          {
+            "name": "$value",
+            "type": "object"
+          },
+          {
+            "name": "id",
+            "type": "number"
+          },
+          {
+            "name": "created_at",
+            "type": "number"
+          },
+          {
+            "name": "serviceName",
+            "type": "text"
+          },
+          {
+            "name": "description",
+            "type": "text"
+          },
+          {
+            "name": "call_type",
+            "type": "text"
+          },
+          {
+            "name": "destination_group",
+            "type": "text"
+          }
+        ],
+        "outputType": "array",
+        "disabled": true
+      },
+      {
+        "name": "api",
+        "module": "api",
+        "action": "send",
+        "options": {
+          "method": "POST",
+          "url": "https://x8ki-letl-twmt.n7.xano.io/api:wQ3tSs79/roamservice_post",
+          "schema": [],
+          "data": {
+            "record": "{{$_POST.record}}"
+          },
+          "dataType": "json"
+        },
+        "output": true,
+        "meta": [
+          {
+            "type": "object",
+            "name": "data",
+            "sub": [
+              {
+                "type": "array",
+                "name": "record",
+                "sub": [
+                  {
+                    "type": "number",
+                    "name": "id"
+                  },
+                  {
+                    "type": "text",
+                    "name": "created_at"
+                  },
+                  {
+                    "type": "text",
+                    "name": "serviceName"
+                  },
+                  {
+                    "type": "text",
+                    "name": "description"
+                  },
+                  {
+                    "type": "text",
+                    "name": "call_type"
+                  },
+                  {
+                    "type": "text",
+                    "name": "destination_group"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "outputType": "object"
+      }
+    ]
+  }
+}

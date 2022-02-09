@@ -1,0 +1,256 @@
+<dmx-serverconnect id="scGetOneAgreement" url="/api/adminOps/getOneAgreement" dmx-param:agreement_id="2"></dmx-serverconnect><!-- Wappler include head-page="layouts/admin" fontawesome_5="cdn" bootstrap5="local" is="dmx-app" id="MasterDetailrough" appConnect="local" components="{dmxBootstrap5TableGenerator:{},dmxFormatter:{},dmxMasonry:{},dmxRouting:{},dmxDataTraversal:{}}" -->
+<dmx-data-detail id="data_detail1" dmx-bind:data="scGetOneAgreement.data.api.data" key="id"></dmx-data-detail>
+<dmx-serverconnect id="serverconnect1" url="/api/adminOps/getAllAgreements"></dmx-serverconnect>
+<dmx-array id="arr1" dmx-bind:items="scGetOneAgreement.data.api.data.ds"></dmx-array>
+<meta name="ac:route" content="/MasterDetailrough">
+<%- await include('/partials/MasDetPartial', Object.assign({}, locals)) %>
+
+
+    <!--
+    <tr>
+                        <th scope="row">2</th>
+                        <td>
+                            <dmx-value id="cellVar" dmx-bind:value="0"></dmx-value>
+                            <input name="id-to-edit" class="form-control style8" dmx-bind:value="'someVal'" dmx-show="(cellVar.value == 0)" dmx-on:click="cellVar.setValue(1)">
+                            <input name="first_name_edited" class="form-control" dmx-show="(cellVar.value == 1)" dmx-on:blur="cellVar.setValue(0);idtoedit.setValue(value)">
+                        </td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                    </tr>
+    -->
+    <div class="container mt-5 mb-5">
+        <form id="line_form" method="post" is="dmx-serverconnect-form" action="dmxConnect/api/line/new_order_line_insert.php" dmx-on:success="notifies1.success('Line items were added successfully.')" dmx-on:error="notifies1.danger('An error occurred during the submission.')" dmx-on:invalid="">
+
+            <div class="row" is="dmx-repeat" id="repeat1" dmx-bind:repeat="4">
+
+                <input id="fy" name="fy" class="form-control" dmx-bind:value="sessions.data.session_fy" type="hidden">
+
+                <input id="expense_id" name="expense_id" class="form-control" dmx-bind:value="expense_insert.data.get_expenseid.id" type="hidden">
+                <div class="w-25 text-center col-5 pl-1 pr-1">
+
+                    <input id="description" name="description" type="text" class="form-control" required="">
+
+                </div>
+
+                <div class="text-center col-3 pl-1 pr-1">
+
+                    <input id="part_number" name="part_number" type="text" class="form-control" required="">
+
+                </div>
+
+                <div class="col-1 text-center pl-1 pr-1">
+
+                    <input id="unit_meas" name="unit_meas" type="text" class="form-control">
+
+                </div>
+
+                <div class="col-1 text-center pl-1 pr-1">
+
+                    <input id="quantity" name="quantity" type="text" class="form-control" required="">
+
+                </div>
+
+                <div class="text-center col-1 pl-1 pr-1">
+
+                    <input id="cost" name="lcost" type="text" class="form-control">
+
+                </div>
+
+                <div class="text-center col-1 pl-1 pr-1">
+
+                    <input id="total_cost" name="total_cost" type="text" class="form-control" readonly="true" dmx-bind:value="(quantity.value.toNumber() * cost.value)">
+
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <button id="btn9" class="btn btn-primary" type="submit">Add records</button>
+
+            </div>
+
+        </form>
+
+
+
+
+    </div>
+    <div class="container">
+        <form is="dmx-serverconnect-form" id="form1" method="post" action="" dmx-generator="bootstrap5" dmx-form-type="vertical" dmx-populate="scGetOneAgreement.data.api.data">
+            <div class="mb-3">
+                <label for="inp_id">Id</label>
+                <input type="number" class="form-control" id="inp_id" name="id" dmx-bind:value="scGetOneAgreement.data.api.data.id" aria-describedby="inp_id_help" placeholder="Enter Id">
+            </div>
+            <div class="mb-3">
+                <label for="inp_created_at">Created at</label>
+                <input type="number" class="form-control" id="inp_created_at" name="created_at" dmx-bind:value="scGetOneAgreement.data.api.data.created_at" aria-describedby="inp_created_at_help" placeholder="Enter Created at">
+            </div>
+            <div class="mb-3">
+                <label for="inp_agreementName">Agreement name</label>
+                <input type="text" class="form-control" id="inp_agreementName" name="agreementName" dmx-bind:value="scGetOneAgreement.data.api.data.agreementName" aria-describedby="inp_agreementName_help" placeholder="Enter Agreement name">
+            </div>
+            <div class="mb-3">
+                <label for="inp_agreementType">Agreement type</label>
+                <input type="text" class="form-control" id="inp_agreementType" name="agreementType" dmx-bind:value="scGetOneAgreement.data.api.data.agreementType" aria-describedby="inp_agreementType_help" placeholder="Enter Agreement type">
+            </div>
+            <div class="mb-3">
+                <label for="inp_startDate">Start date</label>
+                <input type="text" class="form-control" id="inp_startDate" name="startDate" dmx-bind:value="scGetOneAgreement.data.api.data.startDate" aria-describedby="inp_startDate_help" placeholder="Enter Start date">
+            </div>
+            <div class="mb-3">
+                <label for="inp_endDate">End date</label>
+                <input type="text" class="form-control" id="inp_endDate" name="endDate" dmx-bind:value="scGetOneAgreement.data.api.data.endDate" aria-describedby="inp_endDate_help" placeholder="Enter End date">
+            </div>
+            <div class="mb-3">
+                <label for="inp_tax">Tax</label>
+                <input type="text" class="form-control" id="inp_tax" name="tax" dmx-bind:value="scGetOneAgreement.data.api.data.tax" aria-describedby="inp_tax_help" placeholder="Enter Tax">
+            </div>
+            <div class="mb-3">
+                <label for="inp_author">Author</label>
+                <input type="text" class="form-control" id="inp_author" name="author" dmx-bind:value="scGetOneAgreement.data.api.data.author" aria-describedby="inp_author_help" placeholder="Enter Author">
+            </div>
+            <div class="mb-3">
+                <label for="inp_currency">Currency</label>
+                <input type="text" class="form-control" id="inp_currency" name="currency" dmx-bind:value="scGetOneAgreement.data.api.data.currency" aria-describedby="inp_currency_help" placeholder="Enter Currency">
+            </div>
+            <div class="mb-3">
+                <label for="inp_autoProlongation">Auto prolongation</label>
+                <input type="text" class="form-control" id="inp_autoProlongation" name="autoProlongation" dmx-bind:value="scGetOneAgreement.data.api.data.autoProlongation" aria-describedby="inp_autoProlongation_help" placeholder="Enter Auto prolongation">
+            </div>
+            <div class="mb-3">
+                <label for="inp_operator1">Operator1</label>
+                <input type="number" class="form-control" id="inp_operator1" name="operator1" dmx-bind:value="scGetOneAgreement.data.api.data.operator1" aria-describedby="inp_operator1_help" placeholder="Enter Operator1">
+            </div>
+            <div class="mb-3">
+                <label for="inp_operator2">Operator2</label>
+                <input type="number" class="form-control" id="inp_operator2" name="operator2" dmx-bind:value="scGetOneAgreement.data.api.data.operator2" aria-describedby="inp_operator2_help" placeholder="Enter Operator2">
+            </div>
+            <div class="mb-3">
+                <label for="inp_originalContractId">Original contract</label>
+                <input type="text" class="form-control" id="inp_originalContractId" name="originalContractId" dmx-bind:value="scGetOneAgreement.data.api.data.originalContractId" aria-describedby="inp_originalContractId_help" placeholder="Enter Original contract">
+            </div>
+            <div class="mb-3">
+                <label for="inp_frmkAgrContrId">Frmk agr contr</label>
+                <input type="text" class="form-control" id="inp_frmkAgrContrId" name="frmkAgrContrId" dmx-bind:value="scGetOneAgreement.data.api.data.frmkAgrContrId" aria-describedby="inp_frmkAgrContrId_help" placeholder="Enter Frmk agr contr">
+            </div>
+            <div class="mb-3">
+                <label for="inp_dateSigned">Date signed</label>
+                <input type="text" class="form-control" id="inp_dateSigned" name="dateSigned" dmx-bind:value="scGetOneAgreement.data.api.data.dateSigned" aria-describedby="inp_dateSigned_help" placeholder="Enter Date signed">
+            </div>
+            <div is="dmx-repeat" id="repeat2">
+                <div class="row">
+                    <div class="col"></div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <button type="submit" class="btn btn-primary" dmx-bind:value="scGetOneAgreement.data.api.data.Save">Save</button>
+            </div>
+        </form>
+        <form is="dmx-serverconnect-form" id="serverconnectform1" method="post" action="" dmx-generator="bootstrap5" dmx-form-type="vertical" dmx-multi="true" dmx-populate="scGetOneAgreement.data.api.data.ds">
+            <div id="record" is="dmx-repeat" dmx-bind:repeat="scGetOneAgreement.data.api.data.ds">
+                <div class="row gx-3">
+                    <div class="col">
+                        <div class="mb-3">
+                            <label for="inp_revenueCommitment" dmx-bind:for="insp_revenueCommitment_{{$index}}">Revenue commitment</label>
+                            <input type="text" class="form-control" id="inp_revenueCommitment" name="revenueCommitment" dmx-bind:id="insp_revenueCommitment_{{$index}}" dmx-bind:aria-describedby="insp_revenueCommitment_{{$index}}_help" dmx-bind:name="record[{{$index}}][revenueCommitment]" dmx-bind:value="scGetOneAgreement.data.api.data.ds[0].revenueCommitment" aria-describedby="inp_revenueCommitment_help" placeholder="Enter Revenue commitment">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="mb-3">
+                            <label for="inp_id" dmx-bind:for="insp_id_{{$index}}">Id</label>
+                            <input type="number" class="form-control" id="inp_id" name="id" dmx-bind:id="insp_id_{{$index}}" dmx-bind:aria-describedby="insp_id_{{$index}}_help" dmx-bind:name="record[{{$index}}][id]" dmx-bind:value="scGetOneAgreement.data.api.data.ds[0].id" aria-describedby="inp_id_help" placeholder="Enter Id">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="mb-3">
+                            <label for="inp_created_at" dmx-bind:for="insp_created_at_{{$index}}">Created at</label>
+                            <input type="number" class="form-control" id="inp_created_at" name="created_at" dmx-bind:id="insp_created_at_{{$index}}" dmx-bind:aria-describedby="insp_created_at_{{$index}}_help" dmx-bind:name="record[{{$index}}][created_at]" dmx-bind:value="scGetOneAgreement.data.api.data.ds[0].created_at" aria-describedby="inp_created_at_help" placeholder="Enter Created at">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="mb-3">
+                            <label for="inp_discountagreement_id" dmx-bind:for="insp_discountagreement_id_{{$index}}">Discountagreement</label>
+                            <input type="number" class="form-control" id="inp_discountagreement_id" name="discountagreement_id" dmx-bind:id="insp_discountagreement_id_{{$index}}" dmx-bind:aria-describedby="insp_discountagreement_id_{{$index}}_help" dmx-bind:name="record[{{$index}}][discountagreement_id]" dmx-bind:value="scGetOneAgreement.data.api.data.ds[0].discountagreement_id" aria-describedby="inp_discountagreement_id_help" placeholder="Enter Discountagreement">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="mb-3">
+                            <label for="inp_h_tadig" dmx-bind:for="insp_h_tadig_{{$index}}">H tadig</label>
+                            <input type="number" class="form-control" id="inp_h_tadig" name="h_tadig" dmx-bind:id="insp_h_tadig_{{$index}}" dmx-bind:aria-describedby="insp_h_tadig_{{$index}}_help" dmx-bind:name="record[{{$index}}][h_tadig]" dmx-bind:value="scGetOneAgreement.data.api.data.ds[0].h_tadig" aria-describedby="inp_h_tadig_help" placeholder="Enter H tadig">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="mb-3">
+                            <label for="inp_v_tadig" dmx-bind:for="insp_v_tadig_{{$index}}">V tadig</label>
+                            <input type="number" class="form-control" id="inp_v_tadig" name="v_tadig" dmx-bind:id="insp_v_tadig_{{$index}}" dmx-bind:aria-describedby="insp_v_tadig_{{$index}}_help" dmx-bind:name="record[{{$index}}][v_tadig]" dmx-bind:value="scGetOneAgreement.data.api.data.ds[0].v_tadig" aria-describedby="inp_v_tadig_help" placeholder="Enter V tadig">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="mb-3">
+                            <label for="inp_service" dmx-bind:for="insp_service_{{$index}}">Service</label>
+                            <input type="number" class="form-control" id="inp_service" name="service" dmx-bind:id="insp_service_{{$index}}" dmx-bind:aria-describedby="insp_service_{{$index}}_help" dmx-bind:name="record[{{$index}}][service]" dmx-bind:value="scGetOneAgreement.data.api.data.ds[0].service" aria-describedby="inp_service_help" placeholder="Enter Service">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="mb-3">
+                            <label for="inp_startDate" dmx-bind:for="insp_startDate_{{$index}}">Start date</label>
+                            <input type="text" class="form-control" id="inp_startDate" name="startDate" dmx-bind:id="insp_startDate_{{$index}}" dmx-bind:aria-describedby="insp_startDate_{{$index}}_help" dmx-bind:name="record[{{$index}}][startDate]" dmx-bind:value="scGetOneAgreement.data.api.data.ds[0].startDate" aria-describedby="inp_startDate_help" placeholder="Enter Start date">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="mb-3">
+                            <label for="inp_endDate" dmx-bind:for="insp_endDate_{{$index}}">End date</label>
+                            <input type="text" class="form-control" id="inp_endDate" name="endDate" dmx-bind:id="insp_endDate_{{$index}}" dmx-bind:aria-describedby="insp_endDate_{{$index}}_help" dmx-bind:name="record[{{$index}}][endDate]" dmx-bind:value="scGetOneAgreement.data.api.data.ds[0].endDate" aria-describedby="inp_endDate_help" placeholder="Enter End date">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="mb-3">
+                            <label for="inp_status" dmx-bind:for="insp_status_{{$index}}">Status</label>
+                            <input type="text" class="form-control" id="inp_status" name="status" dmx-bind:id="insp_status_{{$index}}" dmx-bind:aria-describedby="insp_status_{{$index}}_help" dmx-bind:name="record[{{$index}}][status]" dmx-bind:value="scGetOneAgreement.data.api.data.ds[0].status" aria-describedby="inp_status_help" placeholder="Enter Status">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="mb-3">
+                            <label for="inp_volumeCommitment" dmx-bind:for="insp_volumeCommitment_{{$index}}">Volume commitment</label>
+                            <input type="text" class="form-control" id="inp_volumeCommitment" name="volumeCommitment" dmx-bind:id="insp_volumeCommitment_{{$index}}" dmx-bind:aria-describedby="insp_volumeCommitment_{{$index}}_help" dmx-bind:name="record[{{$index}}][volumeCommitment]" dmx-bind:value="scGetOneAgreement.data.api.data.ds[0].volumeCommitment" aria-describedby="inp_volumeCommitment_help" placeholder="Enter Volume commitment">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="mb-3">
+                            <label for="inp_currency" dmx-bind:for="insp_currency_{{$index}}">Currency</label>
+                            <input type="text" class="form-control" id="inp_currency" name="currency" dmx-bind:id="insp_currency_{{$index}}" dmx-bind:aria-describedby="insp_currency_{{$index}}_help" dmx-bind:name="record[{{$index}}][currency]" dmx-bind:value="scGetOneAgreement.data.api.data.ds[0].currency" aria-describedby="inp_currency_help" placeholder="Enter Currency">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="mb-3">
+                            <label for="inp_tax" dmx-bind:for="insp_tax_{{$index}}">Tax</label>
+                            <input type="text" class="form-control" id="inp_tax" name="tax" dmx-bind:id="insp_tax_{{$index}}" dmx-bind:aria-describedby="insp_tax_{{$index}}_help" dmx-bind:name="record[{{$index}}][tax]" dmx-bind:value="scGetOneAgreement.data.api.data.ds[0].tax" aria-describedby="inp_tax_help" placeholder="Enter Tax">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <button type="submit" class="btn btn-primary" dmx-bind:value="scGetOneAgreement.data.api.data.ds[0].Save">Save</button>
+            </div>
+        </form>
+    </div>
+    <div class="container">
+        <div id="repeat4" is="dmx-repeat" dmx-bind:repeat="5">
+            <button id="btn2" class="btn btn-warning mt-2 mb-2">Button2</button>
+            <button id="btn3" class="btn btn-secondary">Button3</button>
+        </div>
+        <div dmx-repeat:repeat3="4">
+            <tr>
+                <td>
+                    <button id="btn1" class="btn btn-info mt-3 pt-2 pb-2">Button1</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button id="btn4" class="btn mt-3 pt-2 pb-2 btn-dark">Button4</button>
+                </td>
+            </tr>
+        </div>
+
+    </div>

@@ -1,5 +1,4 @@
 {
-  "direct": true,
   "type": "postgres",
   "connection": {
     "host": "localhost",
@@ -8,29 +7,12 @@
     "password": "ISTWApZo",
     "database": "globalroamweb"
   },
+  "direct": true,
   "schema": {
     "tables": {
       "test1": {
         "db": {
           "schema": "public"
-        },
-        "columns": {
-          "id": {
-            "db": {
-              "type": "increments",
-              "default": "",
-              "primary": true,
-              "nullable": false
-            }
-          },
-          "test_field": {
-            "db": {
-              "type": "string",
-              "maxLength": 255,
-              "primary": false,
-              "nullable": true
-            }
-          }
         }
       },
       "services": {

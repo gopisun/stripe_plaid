@@ -17,7 +17,7 @@
       "type": "local"
     }
   ],
-  "hostingType": "docker",
+  "hostingType": "wappler",
   "projectServerModel": "node",
   "webRootFolder": "/public",
   "useRouting": true,
@@ -27,26 +27,10 @@
   "targets": [
     {
       "name": "Development",
-      "remoteURL": "http://localhost:8100",
-      "webServerPort": 8100,
-      "webServerLang": "node",
-      "targetType": "docker",
-      "webServer": "node",
-      "NodeVersion": "12",
-      "NodeOS": "buster",
-      "NodeImageType": "slim",
-      "webLoggingMaxFiles": "5",
-      "webLoggingMaxFileSize": "10m",
-      "databaseLoggingMaxFiles": "5",
-      "databaseLoggingMaxFileSize": "10m",
-      "databaseType": "postgres",
-      "databasePort": 9906,
-      "postgresVersion": "11.1.x",
-      "postgres_rootName": "db_user",
-      "postgres_rootPassword": "ISTWApZo",
-      "postgres_databaseName": "globalroamweb",
-      "dockerTimezone": "America/New_York",
-      "noSampleData": true
+      "remoteURL": "http://localhost:3000/",
+      "access": "local",
+      "localFolder": "file:///Users/v609867/Training/WapplerProj/GlobalRoamSett",
+      "targetType": "wappler"
     }
   ],
   "activeTarget": "Development",

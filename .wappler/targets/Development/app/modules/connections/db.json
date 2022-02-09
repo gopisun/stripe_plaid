@@ -9,7 +9,7 @@
       "port": 5432,
       "user": "db_user",
       "password": "ISTWApZo",
-      "database": "globalroamweb"
+      "database": "GlobalRoam"
     }
   }
 }

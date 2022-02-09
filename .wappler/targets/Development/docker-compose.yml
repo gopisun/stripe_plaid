@@ -28,7 +28,7 @@ services:
     environment:
       POSTGRES_PASSWORD: 'ISTWApZo'
       POSTGRES_USER: 'db_user'
-      POSTGRES_DB: 'globalroamweb'
+      POSTGRES_DB: 'GlobalRoam'
     volumes:
       - './db_init:/docker-entrypoint-initdb.d'
     ports:

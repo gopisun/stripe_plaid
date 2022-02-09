@@ -1,4 +1,5 @@
-<dmx-serverconnect id="scGetOneAgreement" url="/api/adminOps/getOneAgreement" dmx-param:agreement_id="2"></dmx-serverconnect><!-- Wappler include head-page="layouts/admin" fontawesome_5="cdn" bootstrap5="local" is="dmx-app" id="MasterDetailrough" appConnect="local" -->
+<dmx-serverconnect id="scGetOneAgreement" url="/api/adminOps/getOneAgreement" dmx-param:agreement_id="2"></dmx-serverconnect><!-- Wappler include head-page="layouts/admin" fontawesome_5="cdn" bootstrap5="local" is="dmx-app" id="MasterDetailrough" appConnect="local" components="{dmxBootstrap5TableGenerator:{},dmxFormatter:{}}" -->
+<dmx-array id="arr1" dmx-bind:items="scGetOneAgreement.data.api.data.ds"></dmx-array>
 <meta name="ac:route" content="/MasterDetailrough">
 <div class="container">
     <div class="row">
@@ -7,6 +8,18 @@
                 <div class="card-body">
                     <h4 class="card-title">Discount Agreement</h4>
                     <form is="dmx-serverconnect-form" id="serverconnectform1" method="post" action="" dmx-generator="bootstrap5" dmx-form-type="horizontal" dmx-populate="scGetOneAgreement.data.api.data">
+                        <div class="mb-3 row">
+                            <label for="inp_id" class="col-sm-2 col-form-label">Id</label>
+                            <div class="col-sm-10">
+                                <input type="number" class="form-control" id="inp_id" name="id" dmx-bind:value="scGetOneAgreement.data.api.data.id" aria-describedby="inp_id_help" placeholder="Enter Id">
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="inp_created_at" class="col-sm-2 col-form-label">Created at</label>
+                            <div class="col-sm-10">
+                                <input type="number" class="form-control" id="inp_created_at" name="created_at" dmx-bind:value="scGetOneAgreement.data.api.data.created_at" aria-describedby="inp_created_at_help" placeholder="Enter Created at">
+                            </div>
+                        </div>
                         <div class="mb-3 row">
                             <label for="inp_agreementName" class="col-sm-2 col-form-label">Agreement name</label>
                             <div class="col-sm-10">
@@ -92,9 +105,111 @@
                             </div>
                         </div>
                     </form>
+                    <div class="row">
+                        <div class="col">
+                            <div class="table-responsive">
+                                <table class="table table-striped table-bordered table-sm">
+                                    <thead>
+                                        <tr>
+                                            <th>Discountagreement</th>
+                                            <th>H tadig</th>
+                                            <th>V tadig</th>
+                                            <th>Service</th>
+                                            <th>Start date</th>
+                                            <th>End date</th>
+                                            <th>Status</th>
+                                            <th>Revenue commitment</th>
+                                            <th>Volume commitment</th>
+                                            <th>Currency</th>
+                                            <th>Tax</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody is="dmx-repeat" dmx-generator="bs5table" dmx-bind:repeat="scGetOneAgreement.data.api.data.ds" id="tableRepeat1">
+                                        <tr>
+                                            <td dmx-text="discountagreement_id"></td>
+                                            <td dmx-text="h_tadig"></td>
+                                            <td dmx-text="v_tadig"></td>
+                                            <td dmx-text="service"></td>
+                                            <td dmx-text="startDate"></td>
+                                            <td dmx-text="endDate"></td>
+                                            <td dmx-text="status"></td>
+                                            <td dmx-text="revenueCommitment"></td>
+                                            <td dmx-text="volumeCommitment"></td>
+                                            <td dmx-text="currency"></td>
+                                            <td dmx-text="tax"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
 </div>
+<div class="d-flex justify-content-center mt-4 mb-4">
+    <form id="form1">
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">First</th>
+                        <th scope="col">Last</th>
+                        <th scope="col">Handle</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>
+                            <dmx-value id="cellVar" dmx-bind:value="0"></dmx-value>
+
+
+
+                            <label name="id-to-edit" class="col-sm-12" dmx-bind:value="'someVal'" dmx-show="(cellVar.value == 0)" dmx-on:click="cellVar.setValue(1)" dmx-text="first_name_edited.value"></label>
+                            <!--
+                            <input name="id-to-edit" class="form-control style8" dmx-bind:value="'someVal'" dmx-show="(cellVar.value == 0)" dmx-on:click="cellVar.setValue(1)">
+                            -->
+                            <input name="first_name_edited" class="form-control" dmx-show="(cellVar.value == 1)" dmx-on:blur="cellVar.setValue(0);idtoedit.setValue(value)" value="Default value" placeholder="Enter first name">
+                        </td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td>Larry</td>
+                        <td>the Bird</td>
+                        <td>@twitter</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!--
+        <input name="id-to-edit" type="hidden" class="form-control" dmx-bind:value="id">
+        <input name="first_name_edited" type=" text" class="form-control editablerow" dmx-on:blur="editFirstName.submit()" dmx-bind:value="first_name">
+        -->
+    </form>
+</div>
+
+
+<!--
+    <tr>
+                        <th scope="row">2</th>
+                        <td>
+                            <dmx-value id="cellVar" dmx-bind:value="0"></dmx-value>
+                            <input name="id-to-edit" class="form-control style8" dmx-bind:value="'someVal'" dmx-show="(cellVar.value == 0)" dmx-on:click="cellVar.setValue(1)">
+                            <input name="first_name_edited" class="form-control" dmx-show="(cellVar.value == 1)" dmx-on:blur="cellVar.setValue(0);idtoedit.setValue(value)">
+                        </td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                    </tr>
+    -->

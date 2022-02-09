@@ -1,15 +1,16 @@
 {
-  "name": "db",
+  "name": "GlobalRoam",
   "module": "dbconnector",
   "action": "connect",
   "options": {
     "client": "postgres",
     "connection": {
-      "host": "db",
-      "port": 5432,
+      "host": "localhost",
+      "port": 9906,
       "user": "db_user",
       "password": "ISTWApZo",
-      "database": "GlobalRoam"
+      "database": "globalroamweb"
     }
-  }
+  },
+  "fileName": "GlobalRoam.json"
 }

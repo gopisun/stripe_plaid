@@ -858,5 +858,535 @@ dmx.config({
       ],
       "outputType": "array"
     }
+  },
+  "MasterDetailrough": {
+    "arr1": {
+      "meta": [
+        {
+          "type": "number",
+          "name": "id"
+        },
+        {
+          "type": "number",
+          "name": "created_at"
+        },
+        {
+          "type": "number",
+          "name": "discountagreement_id"
+        },
+        {
+          "type": "number",
+          "name": "h_tadig"
+        },
+        {
+          "type": "number",
+          "name": "v_tadig"
+        },
+        {
+          "type": "number",
+          "name": "service"
+        },
+        {
+          "type": "text",
+          "name": "startDate"
+        },
+        {
+          "type": "text",
+          "name": "endDate"
+        },
+        {
+          "type": "text",
+          "name": "status"
+        },
+        {
+          "type": "text",
+          "name": "revenueCommitment"
+        },
+        {
+          "type": "text",
+          "name": "volumeCommitment"
+        },
+        {
+          "type": "text",
+          "name": "currency"
+        },
+        {
+          "type": "text",
+          "name": "tax"
+        },
+        {
+          "type": "array",
+          "name": "_rm_of_ds",
+          "sub": [
+            {
+              "type": "number",
+              "name": "id"
+            },
+            {
+              "type": "number",
+              "name": "created_at"
+            },
+            {
+              "type": "number",
+              "name": "discstatement_id"
+            },
+            {
+              "type": "text",
+              "name": "modelType"
+            },
+            {
+              "type": "number",
+              "name": "amount"
+            },
+            {
+              "type": "number",
+              "name": "rate"
+            },
+            {
+              "type": "number",
+              "name": "fromLevel"
+            },
+            {
+              "type": "number",
+              "name": "toLevel"
+            },
+            {
+              "type": "text",
+              "name": "increment"
+            }
+          ]
+        }
+      ],
+      "outputType": "array"
+    },
+    "repeat2": {
+      "meta": [
+        {
+          "type": "number",
+          "name": "id"
+        },
+        {
+          "type": "number",
+          "name": "created_at"
+        },
+        {
+          "type": "text",
+          "name": "agreementName"
+        },
+        {
+          "type": "text",
+          "name": "agreementType"
+        },
+        {
+          "type": "text",
+          "name": "startDate"
+        },
+        {
+          "type": "text",
+          "name": "endDate"
+        },
+        {
+          "type": "text",
+          "name": "tax"
+        },
+        {
+          "type": "text",
+          "name": "author"
+        },
+        {
+          "type": "text",
+          "name": "currency"
+        },
+        {
+          "type": "text",
+          "name": "autoProlongation"
+        },
+        {
+          "type": "number",
+          "name": "operator1"
+        },
+        {
+          "type": "number",
+          "name": "operator2"
+        },
+        {
+          "type": "text",
+          "name": "originalContractId"
+        },
+        {
+          "type": "text",
+          "name": "frmkAgrContrId"
+        },
+        {
+          "type": "text",
+          "name": "dateSigned"
+        },
+        {
+          "type": "array",
+          "name": "ds",
+          "sub": [
+            {
+              "type": "number",
+              "name": "id"
+            },
+            {
+              "type": "number",
+              "name": "created_at"
+            },
+            {
+              "type": "number",
+              "name": "discountagreement_id"
+            },
+            {
+              "type": "number",
+              "name": "h_tadig"
+            },
+            {
+              "type": "number",
+              "name": "v_tadig"
+            },
+            {
+              "type": "number",
+              "name": "service"
+            },
+            {
+              "type": "text",
+              "name": "startDate"
+            },
+            {
+              "type": "text",
+              "name": "endDate"
+            },
+            {
+              "type": "text",
+              "name": "status"
+            },
+            {
+              "type": "text",
+              "name": "revenueCommitment"
+            },
+            {
+              "type": "text",
+              "name": "volumeCommitment"
+            },
+            {
+              "type": "text",
+              "name": "currency"
+            },
+            {
+              "type": "text",
+              "name": "tax"
+            },
+            {
+              "type": "array",
+              "name": "_rm_of_ds",
+              "sub": [
+                {
+                  "type": "number",
+                  "name": "id"
+                },
+                {
+                  "type": "number",
+                  "name": "created_at"
+                },
+                {
+                  "type": "number",
+                  "name": "discstatement_id"
+                },
+                {
+                  "type": "text",
+                  "name": "modelType"
+                },
+                {
+                  "type": "number",
+                  "name": "amount"
+                },
+                {
+                  "type": "number",
+                  "name": "rate"
+                },
+                {
+                  "type": "number",
+                  "name": "fromLevel"
+                },
+                {
+                  "type": "number",
+                  "name": "toLevel"
+                },
+                {
+                  "type": "text",
+                  "name": "increment"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "outputType": "object"
+    },
+    "data_detail1": {
+      "meta": [
+        {
+          "type": "number",
+          "name": "id"
+        },
+        {
+          "type": "number",
+          "name": "created_at"
+        },
+        {
+          "type": "text",
+          "name": "agreementName"
+        },
+        {
+          "type": "text",
+          "name": "agreementType"
+        },
+        {
+          "type": "text",
+          "name": "startDate"
+        },
+        {
+          "type": "text",
+          "name": "endDate"
+        },
+        {
+          "type": "text",
+          "name": "tax"
+        },
+        {
+          "type": "text",
+          "name": "author"
+        },
+        {
+          "type": "text",
+          "name": "currency"
+        },
+        {
+          "type": "text",
+          "name": "autoProlongation"
+        },
+        {
+          "type": "number",
+          "name": "operator1"
+        },
+        {
+          "type": "number",
+          "name": "operator2"
+        },
+        {
+          "type": "text",
+          "name": "originalContractId"
+        },
+        {
+          "type": "text",
+          "name": "frmkAgrContrId"
+        },
+        {
+          "type": "text",
+          "name": "dateSigned"
+        },
+        {
+          "type": "array",
+          "name": "ds",
+          "sub": [
+            {
+              "type": "number",
+              "name": "id"
+            },
+            {
+              "type": "number",
+              "name": "created_at"
+            },
+            {
+              "type": "number",
+              "name": "discountagreement_id"
+            },
+            {
+              "type": "number",
+              "name": "h_tadig"
+            },
+            {
+              "type": "number",
+              "name": "v_tadig"
+            },
+            {
+              "type": "number",
+              "name": "service"
+            },
+            {
+              "type": "text",
+              "name": "startDate"
+            },
+            {
+              "type": "text",
+              "name": "endDate"
+            },
+            {
+              "type": "text",
+              "name": "status"
+            },
+            {
+              "type": "text",
+              "name": "revenueCommitment"
+            },
+            {
+              "type": "text",
+              "name": "volumeCommitment"
+            },
+            {
+              "type": "text",
+              "name": "currency"
+            },
+            {
+              "type": "text",
+              "name": "tax"
+            },
+            {
+              "type": "array",
+              "name": "_rm_of_ds",
+              "sub": [
+                {
+                  "type": "number",
+                  "name": "id"
+                },
+                {
+                  "type": "number",
+                  "name": "created_at"
+                },
+                {
+                  "type": "number",
+                  "name": "discstatement_id"
+                },
+                {
+                  "type": "text",
+                  "name": "modelType"
+                },
+                {
+                  "type": "number",
+                  "name": "amount"
+                },
+                {
+                  "type": "number",
+                  "name": "rate"
+                },
+                {
+                  "type": "number",
+                  "name": "fromLevel"
+                },
+                {
+                  "type": "number",
+                  "name": "toLevel"
+                },
+                {
+                  "type": "text",
+                  "name": "increment"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "outputType": "object"
+    },
+    "discStatment": {
+      "meta": [
+        {
+          "type": "number",
+          "name": "id"
+        },
+        {
+          "type": "number",
+          "name": "created_at"
+        },
+        {
+          "type": "number",
+          "name": "discountagreement_id"
+        },
+        {
+          "type": "number",
+          "name": "h_tadig"
+        },
+        {
+          "type": "number",
+          "name": "v_tadig"
+        },
+        {
+          "type": "number",
+          "name": "service"
+        },
+        {
+          "type": "text",
+          "name": "startDate"
+        },
+        {
+          "type": "text",
+          "name": "endDate"
+        },
+        {
+          "type": "text",
+          "name": "status"
+        },
+        {
+          "type": "text",
+          "name": "revenueCommitment"
+        },
+        {
+          "type": "text",
+          "name": "volumeCommitment"
+        },
+        {
+          "type": "text",
+          "name": "currency"
+        },
+        {
+          "type": "text",
+          "name": "tax"
+        },
+        {
+          "type": "array",
+          "name": "_rm_of_ds",
+          "sub": [
+            {
+              "type": "number",
+              "name": "id"
+            },
+            {
+              "type": "number",
+              "name": "created_at"
+            },
+            {
+              "type": "number",
+              "name": "discstatement_id"
+            },
+            {
+              "type": "text",
+              "name": "modelType"
+            },
+            {
+              "type": "number",
+              "name": "amount"
+            },
+            {
+              "type": "number",
+              "name": "rate"
+            },
+            {
+              "type": "number",
+              "name": "fromLevel"
+            },
+            {
+              "type": "number",
+              "name": "toLevel"
+            },
+            {
+              "type": "text",
+              "name": "increment"
+            }
+          ]
+        }
+      ],
+      "outputType": "array"
+    }
   }
 });

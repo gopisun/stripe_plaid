@@ -12,13 +12,19 @@
       "layout": "admin"
     },
     {
+      "path": "/api/adminOps/getOneAgreement/:agreement_id",
+      "exec": "/api/adminOps/getOneAgreement",
+      "method": "get",
+      "name": "getOneAgree"
+    },
+    {
       "path": "/operators",
       "page": "operators",
       "layout": "admin"
     },
     {
       "path": "/services",
-      "page": "services",
+      "page": "services3",
       "layout": "admin"
     },
     {
@@ -38,7 +44,7 @@
     },
     {
       "path": "/MasterDetailrough",
-      "page": "MasterDetailrough",
+      "page": "MasterDetailrough3",
       "layout": "admin"
     }
   ]

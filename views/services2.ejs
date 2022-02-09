@@ -1,0 +1,51 @@
+<!-- Wappler include head-page="layouts/admin" fontawesome_5="cdn" bootstrap5="local" is="dmx-app" id="services" appConnect="local" components="{dmxBootstrap5TableGenerator:{},dmxDataTraversal:{},dmxBootstrap5Modal:{},dmxFormatter:{},dmxBootstrap5Toasts:{},dmxMasonry:{}}" -->
+<div is="dmx-bs5-toasts" id="toasts1" class="style6"></div>
+<dmx-data-detail id="dd_services1" dmx-bind:data="serverconnect2.data.data"></dmx-data-detail>
+<dmx-serverconnect id="serverconnect2" url="/api/adminOps/getRoamingServices2"></dmx-serverconnect>
+<meta name="ac:route" content="/services">
+
+<meta name="ac:route" content="/operators">
+
+<div class="container">
+
+
+    <form is="dmx-serverconnect-form" id="serverconnectform3" method="post" action="/api/adminOps/addServiceMulti" dmx-generator="bootstrap5" dmx-form-type="vertical" dmx-multi="true">
+        <div is="dmx-repeat" dmx-bind:repeat="serverconnect2.data.data">
+
+
+            <div id="record" class="row">
+                <div class="col form-floating mb-3">
+                    <input type="number" class="form-control" id="inp_id" name="id" dmx-bind:id="insp_id_{{$index}}" dmx-bind:aria-describedby="insp_id_{{$index}}_help" dmx-bind:name="record[{{$index}}][id]" dmx-bind:value="id" aria-describedby="inp_id_help" placeholder="Enter Id"><label for="inp_id" dmx-bind:for="insp_id_{{$index}}" class="col-form-label-sm">Id</label>
+
+                </div>
+                <div class="col form-floating mb-3">
+                    <input type="number" class="form-control" id="inp_created_at" name="created_at" dmx-bind:id="insp_created_at_{{$index}}" dmx-bind:aria-describedby="insp_created_at_{{$index}}_help" dmx-bind:name="record[{{$index}}][created_at]" dmx-bind:value="created_at" aria-describedby="inp_created_at_help" placeholder="Enter Created at"><label for="inp_created_at" dmx-bind:for="insp_created_at_{{$index}}" class="col-form-label-sm">Created at</label>
+
+                </div>
+                <div class="col form-floating mb-3">
+
+                    <input type="text" class="form-control" id="inp_serviceName" name="serviceName" dmx-bind:id="insp_serviceName_{{$index}}" dmx-bind:aria-describedby="insp_serviceName_{{$index}}_help" dmx-bind:name="record[{{$index}}][serviceName]" dmx-bind:value="serviceName" aria-describedby="inp_serviceName_help" placeholder="Enter Service name">
+                    <label for="inp_serviceName" dmx-bind:for="insp_serviceName_{{$index}}" class="col-form-label-sm">Service name</label>
+                </div>
+                <div class="col form-floating mb-3">
+                    <input type="text" class="form-control" id="inp_description" name="description" dmx-bind:id="insp_description_{{$index}}" dmx-bind:aria-describedby="insp_description_{{$index}}_help" dmx-bind:name="record[{{$index}}][description]" dmx-bind:value="description" aria-describedby="inp_description_help" placeholder="Enter Description"><label for="inp_description" dmx-bind:for="insp_description_{{$index}}" class="col-form-label-sm">Description</label>
+
+                </div>
+                <div class="col form-floating mb-3">
+                    <input type="text" class="form-control" id="inp_call_type" name="call_type" dmx-bind:id="insp_call_type_{{$index}}" dmx-bind:aria-describedby="insp_call_type_{{$index}}_help" dmx-bind:name="record[{{$index}}][call_type]" dmx-bind:value="call_type" aria-describedby="inp_call_type_help" placeholder="Enter Call type"><label for="inp_call_type" dmx-bind:for="insp_call_type_{{$index}}">Call type</label>
+
+                </div>
+                <div class="col form-floating mb-3">
+                    <input type="text" class="form-control" id="inp_destination_group" name="destination_group" dmx-bind:id="insp_destination_group_{{$index}}" dmx-bind:aria-describedby="insp_destination_group_{{$index}}_help" dmx-bind:name="record[{{$index}}][destination_group]" dmx-bind:value="destination_group" aria-describedby="inp_destination_group_help" placeholder="Enter Destination group"><label for="inp_destination_group" dmx-bind:for="insp_destination_group_{{$index}}" class="col-form-label-sm">Destination grp</label>
+
+                </div>
+            </div>
+        </div>
+        <div class="mb-3">
+            <button class="btn btn-primary" dmx-bind:value="Save" dmx-on:click="serverconnectform3.submit()">Save</button>
+        </div>
+
+    </form>
+
+
+</div>
