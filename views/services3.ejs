@@ -7,15 +7,22 @@
 <meta name="ac:route" content="/operators">
 
 <div class="container">
+    <div class="row">
+        <div class="col">
+            <h2>Roaming Services</h2>
+        </div>
+    </div>
+</div>
+<div class="container">
 
 
     <form is="dmx-serverconnect-form" id="serverconnectform3" method="post" action="/api/adminOps/addServiceMulti" dmx-generator="bootstrap5" dmx-form-type="vertical" dmx-multi="true" dmx-on:success="serverconnect2.load();toasts1.show({message: 'Services added &amp; updated successfully !', title: 'Services Change Notification', subtitle: 'Add/Update Services'})">
         <div is="dmx-repeat" dmx-bind:repeat="serverconnect2.data.data">
 
 
-            <div id="record" class="row">
+            <div id="record" class="row h-auto">
                 <dmx-value id="cellVar" dmx-bind:value="0"></dmx-value>
-                <div class="col form-floating mb-3">
+                <div class="col form-floating">
                     <input type="number" class="form-control" id="inp_id" name="id" dmx-bind:id="insp_id_{{$index}}" dmx-bind:aria-describedby="insp_id_{{$index}}_help" dmx-bind:name="record[{{$index}}][id]" dmx-bind:value="id" aria-describedby="inp_id_help" placeholder="Enter Id" dmx-show="(cellVar.value == 1)">
 
                     <label for="inp_id" dmx-bind:for="insp_id_{{$index}}" class="col-form-label-sm" dmx-show="(cellVar.value == 1)">Id</label>
@@ -24,7 +31,7 @@
 
 
                 </div>
-                <div class="col form-floating mb-3">
+                <div class="col form-floating ">
                     <input type="number" class="form-control" id="inp_created_at" name="created_at" dmx-bind:id="insp_created_at_{{$index}}" dmx-bind:aria-describedby="insp_created_at_{{$index}}_help" dmx-bind:name="record[{{$index}}][created_at]" dmx-bind:value="created_at" aria-describedby="inp_created_at_help" placeholder="Enter Created at" dmx-show="(cellVar.value == 1)">
 
                     <label for="inp_created_at" dmx-bind:for="insp_created_at_{{$index}}" dmx-show="(cellVar.value == 1)" class="col-form-label-sm">Created at</label>
@@ -32,41 +39,41 @@
                     <p name="label_created_at" class="col-sm-12 form text-start style9 lh-lg mt-2 ms-0 ps-3 pe-0" dmx-show="(cellVar.value == 0)" dmx-text="inp_created_at.value"></p>
 
                 </div>
-                <div class="col form-floating mb-3">
+                <div class="col form-floating">
 
                     <input type="text" class="form-control" id="inp_serviceName" name="serviceName" dmx-bind:id="insp_serviceName_{{$index}}" dmx-bind:aria-describedby="insp_serviceName_{{$index}}_help" dmx-bind:name="record[{{$index}}][serviceName]" dmx-bind:value="serviceName" aria-describedby="inp_serviceName_help" placeholder="Enter Service name" dmx-show="(cellVar.value == 1)">
 
                     <label for="inp_serviceName" dmx-bind:for="insp_serviceName_{{$index}}" class="col-form-label-sm" dmx-show="(cellVar.value == 1)">Service name</label>
 
-                    <p name="label_serviceName" class="col-sm-12 form text-start style9 lh-lg mt-2 ms-0 ps-3 pe-0" dmx-show="(cellVar.value == 0)" dmx-text="inp_serviceName.value" dmx-show="(cellVar.value == 0)"></p>
+                    <p name="label_serviceName" class="col-sm-12 form text-start style9 lh-lg ms-0 ps-3 pe-0" dmx-show="(cellVar.value == 0)" dmx-text="inp_serviceName.value" dmx-show="(cellVar.value == 0)"></p>
 
 
                 </div>
-                <div class="col form-floating mb-3">
+                <div class="col form-floating">
                     <input type="text" class="form-control" id="inp_description" name="description" dmx-bind:id="insp_description_{{$index}}" dmx-bind:aria-describedby="insp_description_{{$index}}_help" dmx-bind:name="record[{{$index}}][description]" dmx-bind:value="description" aria-describedby="inp_description_help" placeholder="Enter Description " dmx-show="(cellVar.value == 1)">
 
                     <label for="inp_description" dmx-bind:for="insp_description_{{$index}}" class="col-form-label-sm "    dmx-show="(cellVar.value == 1)">Description</label>
 
-                    <p name="label_description" class="col-sm-12 form text-start style9 lh-lg mt-2 ms-0 ps-3 pe-0" dmx-show="(cellVar.value == 0)" dmx-text="inp_description.value" dmx-show="(cellVar.value == 0)"></p>
+                    <p name="label_description" class="col-sm-12 form text-start style9 lh-lg mt-0 ms-0 ps-3 pe-0" dmx-show="(cellVar.value == 0)" dmx-text="inp_description.value" dmx-show="(cellVar.value == 0)"></p>
 
                 </div>
-                <div class="col form-floating mb-3">
+                <div class="col form-floating">
                     <input type="text" class="form-control" id="inp_call_type" name="call_type" dmx-bind:id="insp_call_type_{{$index}}" dmx-bind:aria-describedby="insp_call_type_{{$index}}_help" dmx-bind:name="record[{{$index}}][call_type]" dmx-bind:value="call_type" aria-describedby="inp_call_type_help" placeholder="Enter Call type "   dmx-show="(cellVar.value == 1)">
 
                     <label for="inp_call_type" dmx-bind:for="insp_call_type_{{$index }}" dmx-show="(cellVar.value == 1)">Call type</label>
 
-                    <p name="label_cell_type" class="col-sm-12 form text-start style9 lh-lg mt-2 ms-0 ps-3 pe-0" dmx-show="(cellVar.value == 0)" dmx-text="inp_cell_type.value" dmx-show="(cellVar.value == 0)"></p>
+                    <p name="label_cell_type" class="col-sm-12 form text-start style9 lh-lg mt-0 ms-0 ps-3 pe-0" dmx-show="(cellVar.value == 0)" dmx-text="inp_cell_type.value" dmx-show="(cellVar.value == 0)"></p>
 
                 </div>
-                <div class="col form-floating mb-3">
-                    <input type="text" class="form-control" id="inp_destination_group" name="destination_group" dmx-bind:id="insp_destination_group_{{$index}}" dmx-bind:aria-describedby="insp_destination_group_{{$index}}_help" dmx-bind:name="record[{{$index}}][destination_group]" dmx-bind:value="destination_group" aria-describedby="inp_destination_group_help" placeholder="Enter Destination group" dmx-show="(cellVar.value == 1)">
+                <div class="col form-floating">
+                    <input type="text" class="form-control mt-0 style18" id="inp_destination_group" name="destination_group" dmx-bind:id="insp_destination_group_{{$index}}" dmx-bind:aria-describedby="insp_destination_group_{{$index}}_help" dmx-bind:name="record[{{$index}}][destination_group]" dmx-bind:value="destination_group" aria-describedby="inp_destination_group_help" placeholder="Enter Destination group" dmx-show="(cellVar.value == 1)">
 
                     <label for="inp_destination_group" dmx-bind:for="insp_destination_group_{{$index}}" class="col-form-label-sm style11 " dmx-show="(cellVar.value == 1)">Destination grp</label>
 
-                    <p name="label_dest_grp" class="col-sm-12 form text-start style9 lh-lg mt-2 ms-0 ps-3 pe-0" dmx-show="(cellVar.value == 0)" dmx-text="inp_destination_group.value" dmx-show="(cellVar.value == 0)"></p>
+                    <p name="label_dest_grp" class="col-sm-12 form text-start style9 lh-lg mt-0 ms-0 ps-3 pe-0" dmx-show="(cellVar.value == 0)" dmx-text="inp_destination_group.value" dmx-show="(cellVar.value == 0)"></p>
 
                 </div>
-                <div class="col form-floating mb-3">
+                <div class="col form-floating">
                     <button id="btn1" class="btn" wappler-empty="Editable" wappler-command="editContent"><i class="fas fa-pen" dmx-on:click="cellVar.setValue(1)" dmx-show="(cellVar.value == 0)"></i><i class="fas fa-check" dmx-on:click="cellVar.setValue(0)" dmx-show="(cellVar.value == 1)"></i></button>
 
                 </div>

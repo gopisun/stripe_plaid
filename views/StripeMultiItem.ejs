@@ -1,0 +1,90 @@
+<!-- Wappler include head-page="layouts/admin" fontawesome_5="cdn" bootstrap5="local" is="dmx-app" id="StripeMultiItem" appConnect="local" components="{dmxDatastore:{},dmxBootstrap5Modal:{},dmxBootstrap5TableGenerator:{},dmxStripe:{},dmxFormatter:{}}" -->
+<dmx-stripe id="stripe1" key="pk_test_51KTpYoCkYyWRehNVd4knuhMT4BOGugJfVBQDzGxsUwnOukBD6TxGEF6TTSJaJIaEMibIyzejL1AAbsBm4PxUojVS00xUIU4twZ" dmx-bind:line-items="ds_shoppingCart.data" success-url="/successPage" cancel-url="/paymentCancelPage" dmx-on:done="ds_shoppingCart.clear()"></dmx-stripe>
+<div class="modal" id="md_shoppingCart" is="dmx-bs5-modal" tabindex="-1">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Shopping Cart</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Price</th>
+                                <th>Quantity</th>
+                                <th>Product price</th>
+                                <th>Product name</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody is="dmx-repeat" dmx-generator="bs5table" dmx-bind:repeat="ds_shoppingCart.data" id="tableRepeat2">
+                            <tr>
+                                <td dmx-text="price"></td>
+                                <td dmx-text="quantity"></td>
+                                <td dmx-text="product_price"></td>
+                                <td dmx-text="product_name"></td>
+                                <td>
+                                    <button id="btn1" class="btn btn-primary" dmx-on:click="ds_shoppingCart.update({product_id: product_id},{quantity: (ds_shoppingCart.data[0].quantity + 1)})"><i class="fas fa-plus"></i></button>
+                                    <button id="btn2" class="btn btn-primary"><i class="fas fa-minus-square"></i></button>
+                                    <button id="btn3" class="btn btn-danger"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="btn4" class="btn btn-primary" dmx-on:click="stripe1.checkout();ds_shoppingCart.clear()">Checkout</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" dmx-on:click="md_shoppingCart.hide()">Continue Shopping</button>
+            </div>
+        </div>
+    </div>
+</div>
+<dmx-datastore id="ds_shoppingCart"></dmx-datastore>
+<meta name="ac:route" content="/StripeMultiItem">
+<div class="container-fluid">
+    <div class="row">
+        <div class="col align-self-end">
+            <div class="card">
+                <img class="card-img-top" alt="Card image cap" src="/assets/img/iPhone13ProMax.png">
+                <div class="card-body">
+                    <h4 class="card-title">iPhone 13 pro Max</h4>
+                    <p class="card-text">Price $1,299</p>
+                    <a href="#" class="btn btn-primary" dmx-on:click="ds_shoppingCart.upsert({product_id: 1},{price: 'price_1KTug0CkYyWRehNVjERTJg4K', quantity: `quantity + 1`, product_id: 1, product_price: 1299, product_name: 'iPhone 13 Pro Max'});md_shoppingCart.show()">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+        <div class="col align-self-end">
+            <div class="card">
+                <img class="card-img-top" alt="Card image cap" src="/assets/img/iPhone13.png">
+                <div class="card-body">
+                    <h4 class="card-title">iPhone 13 Standard</h4>
+                    <p class="card-text">Price $899</p>
+                    <a href="#" class="btn btn-primary" dmx-on:click="ds_shoppingCart.upsert({product_id: 2},{price: 'price_1KTuiGCkYyWRehNVM0m20rDk', quantity: `quantity + 1`, product_id: 2, product_price: 899, product_name: 'iPhone 13 Standard'});md_shoppingCart.show()">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+        <div class="col align-self-end">
+            <div class="card">
+                <img class="card-img-top" alt="Card image cap" src="/assets/img/samsungS21grey.png">
+                <div class="card-body">
+                    <h4 class="card-title">Samsung Galaxy S21 Ultra</h4>
+                    <p class="card-text">Price $1,299</p>
+                    <a href="#" class="btn btn-primary" dmx-on:click="ds_shoppingCart.upsert({product_id: 3},{price: 'price_1KTuj9CkYyWRehNVEpaOSCvO', product_id: 3, product_price: 1299, product_name: 'Samsung Galaxy S21 Ultra', quantity: `quantity + 1`});md_shoppingCart.show()">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+        <div class="col align-self-end">
+            <div class="card">
+                <img class="card-img-top h-auto" alt="Card image cap" src="/assets/img/samsungS21.png" width="50px" height="40px">
+                <div class="card-body">
+                    <h4 class="card-title">Samsung Galaxy S21</h4>
+                    <p class="card-text">Price $999</p>
+                    <a href="#" class="btn btn-primary" dmx-on:click="ds_shoppingCart.upsert({product_id: 4},{price: 'price_1KTuhSCkYyWRehNVEtMS3yLq', quantity: `quantity + 1`, product_id: 4, product_price: 899, product_name: 'Samsung Galaxy S21'});md_shoppingCart.show()">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

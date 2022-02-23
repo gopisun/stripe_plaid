@@ -27,7 +27,7 @@
   "targets": [
     {
       "name": "Development",
-      "remoteURL": "http://localhost:3000/",
+      "remoteURL": "http://localhost:3000",
       "access": "local",
       "localFolder": "file:///Users/v609867/Training/WapplerProj/GlobalRoamSett",
       "targetType": "wappler"

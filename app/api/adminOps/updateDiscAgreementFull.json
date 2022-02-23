@@ -1,0 +1,238 @@
+{
+  "meta": {
+    "options": {
+      "linkedFile": "/views/MasterDetailrough4.ejs",
+      "linkedForm": "form1"
+    },
+    "$_POST": [
+      {
+        "type": "text",
+        "fieldName": "contractId",
+        "name": "contractId"
+      },
+      {
+        "type": "text",
+        "fieldName": "input1",
+        "name": "input1"
+      },
+      {
+        "type": "text",
+        "fieldName": "input2",
+        "name": "input2"
+      },
+      {
+        "type": "text",
+        "fieldName": "input3",
+        "name": "input3"
+      },
+      {
+        "type": "text",
+        "fieldName": "input4",
+        "name": "input4"
+      },
+      {
+        "type": "text",
+        "fieldName": "input5",
+        "name": "input5"
+      },
+      {
+        "type": "text",
+        "fieldName": "input6",
+        "name": "input6"
+      },
+      {
+        "type": "text",
+        "fieldName": "input7",
+        "name": "input7"
+      },
+      {
+        "type": "text",
+        "fieldName": "input8",
+        "name": "input8"
+      },
+      {
+        "type": "text",
+        "fieldName": "input9",
+        "multiple": true,
+        "name": "input9"
+      },
+      {
+        "type": "text",
+        "fieldName": "text1",
+        "name": "text1"
+      },
+      {
+        "type": "text",
+        "fieldName": "input10",
+        "name": "input10"
+      },
+      {
+        "type": "text",
+        "fieldName": "text2",
+        "name": "text2"
+      },
+      {
+        "type": "text",
+        "fieldName": "text3",
+        "name": "text3"
+      },
+      {
+        "type": "text",
+        "fieldName": "text4",
+        "name": "text4"
+      },
+      {
+        "type": "text",
+        "fieldName": "text8",
+        "name": "text8"
+      },
+      {
+        "type": "text",
+        "fieldName": "text7",
+        "name": "text7"
+      },
+      {
+        "type": "text",
+        "fieldName": "text6",
+        "name": "text6"
+      },
+      {
+        "type": "text",
+        "fieldName": "text5",
+        "name": "text5"
+      }
+    ]
+  },
+  "exec": {
+    "steps": {
+      "name": "api",
+      "module": "api",
+      "action": "send",
+      "options": {
+        "method": "POST",
+        "url": "https://x8ki-letl-twmt.n7.xano.io/api:wQ3tSs79/updateAgreementFull",
+        "schema": []
+      },
+      "output": true,
+      "meta": [
+        {
+          "type": "object",
+          "name": "data",
+          "sub": [
+            {
+              "type": "number",
+              "name": "id"
+            },
+            {
+              "type": "number",
+              "name": "created_at"
+            },
+            {
+              "type": "text",
+              "name": "agreementName"
+            },
+            {
+              "type": "text",
+              "name": "agreementType"
+            },
+            {
+              "type": "text",
+              "name": "startDate"
+            },
+            {
+              "type": "text",
+              "name": "endDate"
+            },
+            {
+              "type": "text",
+              "name": "tax"
+            },
+            {
+              "type": "text",
+              "name": "author"
+            },
+            {
+              "type": "text",
+              "name": "currency"
+            },
+            {
+              "type": "text",
+              "name": "autoProlongation"
+            },
+            {
+              "type": "number",
+              "name": "operator1"
+            },
+            {
+              "type": "number",
+              "name": "operator2"
+            },
+            {
+              "type": "text",
+              "name": "originalContractId"
+            },
+            {
+              "type": "text",
+              "name": "frmkAgrContrId"
+            },
+            {
+              "type": "text",
+              "name": "dateSigned"
+            }
+          ]
+        },
+        {
+          "type": "object",
+          "name": "headers",
+          "sub": [
+            {
+              "type": "text",
+              "name": "access-control-allow-credentials"
+            },
+            {
+              "type": "text",
+              "name": "access-control-allow-headers"
+            },
+            {
+              "type": "text",
+              "name": "access-control-allow-methods"
+            },
+            {
+              "type": "text",
+              "name": "access-control-allow-origin"
+            },
+            {
+              "type": "text",
+              "name": "access-control-max-age"
+            },
+            {
+              "type": "text",
+              "name": "content-encoding"
+            },
+            {
+              "type": "text",
+              "name": "content-type"
+            },
+            {
+              "type": "text",
+              "name": "date"
+            },
+            {
+              "type": "text",
+              "name": "strict-transport-security"
+            },
+            {
+              "type": "text",
+              "name": "x-app"
+            },
+            {
+              "type": "text",
+              "name": "x-xss-protection"
+            }
+          ]
+        }
+      ],
+      "outputType": "object"
+    }
+  }
+}

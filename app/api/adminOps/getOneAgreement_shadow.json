@@ -1,0 +1,241 @@
+{
+  "meta": {
+    "$_PARAM": [
+      {
+        "type": "number",
+        "name": "agreement_id"
+      }
+    ]
+  },
+  "exec": {
+    "steps": {
+      "name": "api",
+      "module": "api",
+      "action": "send",
+      "options": {
+        "url": "https://x8ki-letl-twmt.n7.xano.io/api:OtQOpsHt/discountagreement/13/clone_1",
+        "schema": []
+      },
+      "output": true,
+      "meta": [
+        {
+          "type": "object",
+          "name": "data",
+          "sub": [
+            {
+              "type": "number",
+              "name": "id"
+            },
+            {
+              "type": "number",
+              "name": "created_at"
+            },
+            {
+              "type": "text",
+              "name": "agreementName"
+            },
+            {
+              "type": "text",
+              "name": "agreementType"
+            },
+            {
+              "type": "text",
+              "name": "startDate"
+            },
+            {
+              "type": "text",
+              "name": "endDate"
+            },
+            {
+              "type": "text",
+              "name": "tax"
+            },
+            {
+              "type": "text",
+              "name": "author"
+            },
+            {
+              "type": "text",
+              "name": "currency"
+            },
+            {
+              "type": "text",
+              "name": "autoProlongation"
+            },
+            {
+              "type": "number",
+              "name": "operator1"
+            },
+            {
+              "type": "number",
+              "name": "operator2"
+            },
+            {
+              "type": "text",
+              "name": "originalContractId"
+            },
+            {
+              "type": "text",
+              "name": "frmkAgrContrId"
+            },
+            {
+              "type": "text",
+              "name": "dateSigned"
+            },
+            {
+              "type": "array",
+              "name": "ds",
+              "sub": [
+                {
+                  "type": "number",
+                  "name": "id"
+                },
+                {
+                  "type": "number",
+                  "name": "created_at"
+                },
+                {
+                  "type": "number",
+                  "name": "discountagreement_id"
+                },
+                {
+                  "type": "number",
+                  "name": "h_tadig"
+                },
+                {
+                  "type": "number",
+                  "name": "v_tadig"
+                },
+                {
+                  "type": "number",
+                  "name": "service"
+                },
+                {
+                  "type": "text",
+                  "name": "startDate"
+                },
+                {
+                  "type": "text",
+                  "name": "endDate"
+                },
+                {
+                  "type": "text",
+                  "name": "status"
+                },
+                {
+                  "type": "text",
+                  "name": "revenueCommitment"
+                },
+                {
+                  "type": "text",
+                  "name": "volumeCommitment"
+                },
+                {
+                  "type": "text",
+                  "name": "currency"
+                },
+                {
+                  "type": "text",
+                  "name": "tax"
+                },
+                {
+                  "type": "array",
+                  "name": "_rm_of_ds",
+                  "sub": [
+                    {
+                      "type": "number",
+                      "name": "id"
+                    },
+                    {
+                      "type": "number",
+                      "name": "created_at"
+                    },
+                    {
+                      "type": "number",
+                      "name": "discstatement_id"
+                    },
+                    {
+                      "type": "text",
+                      "name": "modelType"
+                    },
+                    {
+                      "type": "number",
+                      "name": "amount"
+                    },
+                    {
+                      "type": "number",
+                      "name": "rate"
+                    },
+                    {
+                      "type": "number",
+                      "name": "fromLevel"
+                    },
+                    {
+                      "type": "number",
+                      "name": "toLevel"
+                    },
+                    {
+                      "type": "text",
+                      "name": "increment"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "object",
+          "name": "headers",
+          "sub": [
+            {
+              "type": "text",
+              "name": "access-control-allow-credentials"
+            },
+            {
+              "type": "text",
+              "name": "access-control-allow-headers"
+            },
+            {
+              "type": "text",
+              "name": "access-control-allow-methods"
+            },
+            {
+              "type": "text",
+              "name": "access-control-allow-origin"
+            },
+            {
+              "type": "text",
+              "name": "access-control-max-age"
+            },
+            {
+              "type": "text",
+              "name": "content-encoding"
+            },
+            {
+              "type": "text",
+              "name": "content-type"
+            },
+            {
+              "type": "text",
+              "name": "date"
+            },
+            {
+              "type": "text",
+              "name": "strict-transport-security"
+            },
+            {
+              "type": "text",
+              "name": "x-app"
+            },
+            {
+              "type": "text",
+              "name": "x-xss-protection"
+            }
+          ]
+        }
+      ],
+      "outputType": "object"
+    }
+  }
+}

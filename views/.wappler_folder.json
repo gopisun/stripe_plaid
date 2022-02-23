@@ -26,5 +26,25 @@
   "MasterDetailrough.ejs": {
     "layoutPage": "admin",
     "description": ""
+  },
+  "sandbox.ejs": {
+    "layoutPage": "admin",
+    "description": ""
+  },
+  "StripePayment.ejs": {
+    "layoutPage": "admin",
+    "description": ""
+  },
+  "successPage.ejs": {
+    "layoutPage": "admin",
+    "description": ""
+  },
+  "StripeMultiItem.ejs": {
+    "layoutPage": "admin",
+    "description": ""
+  },
+  "stripeShoppingCart.ejs": {
+    "layoutPage": "admin",
+    "description": ""
   }
 }

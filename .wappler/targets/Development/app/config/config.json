@@ -1,4 +1,10 @@
 {
   "debug": true,
-  "secret": "V8bVEDLdRrxbVpQ"
+  "secret": "V8bVEDLdRrxbVpQ",
+  "cors": {
+    "origin": "*"
+  },
+  "stripe": {
+    "secretKey": "sk_test_51KTpYoCkYyWRehNVN73xQaeqkYuwrukGAZsVpr2H4IfzKrEpQAuIpQyFne7LbDw59O4fdl2k11ARJjsd7g1EQWjM00Lff9lAB1"
+  }
 }

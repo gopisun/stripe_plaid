@@ -1,0 +1,18 @@
+{
+  "meta": {
+    "$_POST": [
+      {
+        "name": "data",
+        "type": "object",
+        "sub": [
+          {
+            "type": "object",
+            "name": "object",
+            "ref": "stripe_checkout.session"
+          }
+        ]
+      }
+    ]
+  },
+  "exec": {}
+}

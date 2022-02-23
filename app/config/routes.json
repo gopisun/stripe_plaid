@@ -1,6 +1,42 @@
 {
   "routes": [
     {
+      "path": "/stripeServerXano",
+      "url": "",
+      "routeType": "page",
+      "page": "StripeServerXano",
+      "layout": "admin"
+    },
+    {
+      "path": "/sripeXanoPayment1",
+      "url": "",
+      "routeType": "page",
+      "page": "StripeXanoPayment1",
+      "layout": "admin"
+    },
+    {
+      "path": "/stripeXanoPayment2",
+      "url": "",
+      "routeType": "page",
+      "page": "StripeXanoPayment2",
+      "layout": "admin"
+    },
+    {
+      "path": "/StripeServerSide",
+      "url": "",
+      "name": "",
+      "routeType": "page",
+      "page": "StripeServerSide",
+      "layout": "admin"
+    },
+    {
+      "path": "/paymentCancelPage",
+      "url": "",
+      "routeType": "page",
+      "page": "paymentCancelPage",
+      "layout": "admin"
+    },
+    {
       "path": "/",
       "page": "index",
       "routeType": "page",
@@ -44,7 +80,27 @@
     },
     {
       "path": "/MasterDetailrough",
-      "page": "MasterDetailrough3",
+      "page": "MasterDetailrough4",
+      "layout": "admin"
+    },
+    {
+      "path": "/sandbox",
+      "page": "sandbox",
+      "layout": "admin"
+    },
+    {
+      "path": "/StripePayment",
+      "page": "StripePayment",
+      "layout": "admin"
+    },
+    {
+      "path": "/successPage",
+      "page": "successPage",
+      "layout": "admin"
+    },
+    {
+      "path": "/StripeMultiItem",
+      "page": "StripeMultiItem",
       "layout": "admin"
     }
   ]

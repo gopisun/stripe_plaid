@@ -1,0 +1,89 @@
+<!-- Wappler include head-page="layouts/admin" fontawesome_5="cdn" bootstrap5="local" is="dmx-app" id="StripeMultiItem" appConnect="local" components="{dmxDatastore:{},dmxBootstrap5Modal:{},dmxBootstrap5TableGenerator:{},dmxStripe:{},dmxNotifications:{},dmxFormatter:{}}" -->
+<dmx-notifications id="notifies1"></dmx-notifications>
+<dmx-stripe id="stripe_serverSide" key="pk_test_51KTpYoCkYyWRehNVd4knuhMT4BOGugJfVBQDzGxsUwnOukBD6TxGEF6TTSJaJIaEMibIyzejL1AAbsBm4PxUojVS00xUIU4twZ" dmx-bind:line-items="ds_shoppingCartS.data" success-url="/successPage" cancel-url="/paymentCancelPage" checkout="server" session-url="/api/stripePayments/stripe_checkout" dmx-on:error="notifies1.danger(lastError)" dmx-on:done="ds_shoppingCartS.clear();ds_shoppingCartS.update({},{quantity: 0})"></dmx-stripe>
+<div class="modal" id="md_shoppingCart" is="dmx-bs5-modal" tabindex="-1">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Shopping Cart</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Product name</th>
+                                <th>Product price</th>
+                                <th>Quantity</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody is="dmx-repeat" dmx-generator="bs5table" dmx-bind:repeat="ds_shoppingCartS.data" id="tableRepeat1">
+                            <tr>
+                                <td dmx-text="product_name"></td>
+                                <td dmx-text="product_price"></td>
+                                <td dmx-text="quantity"></td>
+                                <td>
+                                    <button id="btn1" class="btn btn-primary" dmx-on:click="ds_shoppingCartS.update({product_id: product_id},{quantity: (quantity + 1), product_id: product_id})"><i class="fas fa-plus"></i></button>
+                                    <button id="btn2" class="btn btn-primary active" dmx-on:click="ds_shoppingCartS.upsert({product_id: product_id},{quantity: (quantity - 1)})"><i class="fas fa-minus-square"></i></button>
+                                    <button id="btn3" class="btn btn-danger" dmx-on:click="ds_shoppingCartS.upsert({product_id: product_id},{quantity: 0})"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="btn_checkout" class="btn btn-primary" dmx-on:click="stripe_serverSide.checkout()">Checkout</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" dmx-on:click="md_shoppingCart.hide()" id="btn_continue_shopping">Continue Shopping</button>
+            </div>
+        </div>
+    </div>
+</div>
+<dmx-datastore id="ds_shoppingCartS" dmx-on:updated="ds_shoppingCartS.delete({quantity: 0})"></dmx-datastore>
+<meta name="ac:route" content="/StripeServerSide">
+<div class="container-fluid">
+    <div class="row">
+        <div class="col align-self-end">
+            <div class="card">
+                <img class="card-img-top" alt="Card image cap" src="/assets/img/iPhone13ProMax.png">
+                <div class="card-body">
+                    <h4 class="card-title">iPhone 13 pro Max</h4>
+                    <p class="card-text">Price $1,299</p>
+                    <a href="#" class="btn btn-primary" dmx-on:click="md_shoppingCart.show();ds_shoppingCartS.upsert({product_id: 1},{price: 'price_1KTug0CkYyWRehNVjERTJg4K', product_id: 1, quantity: `quantity + 1`, product_name: 'iPhone 13 Pro MAx', product_price: 1299})">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+        <div class="col align-self-end">
+            <div class="card">
+                <img class="card-img-top" alt="Card image cap" src="/assets/img/iPhone13.png">
+                <div class="card-body">
+                    <h4 class="card-title">iPhone 13 Standard</h4>
+                    <p class="card-text">Price $899</p>
+                    <a href="#" class="btn btn-primary" dmx-on:click="ds_shoppingCartS.upsert({product_id: 2},{price: 'price_1KTuiGCkYyWRehNVM0m20rDk', quantity: `quantity + 1`, product_id: 2, product_name: 'iPhone 13 Standard', product_price: 899});md_shoppingCart.show()">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+        <div class="col align-self-end">
+            <div class="card">
+                <img class="card-img-top" alt="Card image cap" src="/assets/img/samsungS21grey.png">
+                <div class="card-body">
+                    <h4 class="card-title">Samsung Galaxy S21 Ultra</h4>
+                    <p class="card-text">Price $1,299</p>
+                    <a href="#" class="btn btn-primary" dmx-on:click="md_shoppingCart.show();ds_shoppingCartS.upsert({product_id: 3},{quantity: `quantity + 1`, product_id: 3, product_name: 'Samsung Galaxy S21 Ultra', product_price: 1299, price: 'price_1KTuhSCkYyWRehNVEtMS3yLq'})">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+        <div class="col align-self-end">
+            <div class="card">
+                <img class="card-img-top h-auto" alt="Card image cap" src="/assets/img/samsungS21.png" width="50px" height="40px">
+                <div class="card-body">
+                    <h4 class="card-title">Samsung Galaxy S21</h4>
+                    <p class="card-text">Price $999</p>
+                    <a href="#" class="btn btn-primary" dmx-on:click="md_shoppingCart.show();ds_shoppingCartS.upsert({product_id: 4},{quantity: `quantity + 1`, product_id: 4, product_name: 'Samsung Galaxy W21', product_price: 999, price: 'price_1KTuhSCkYyWRehNVEtMS3yLq'})">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

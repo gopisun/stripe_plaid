@@ -1387,6 +1387,511 @@ dmx.config({
         }
       ],
       "outputType": "array"
+    },
+    "repeatRatingModel": {
+      "meta": [
+        {
+          "type": "number",
+          "name": "id"
+        },
+        {
+          "type": "number",
+          "name": "created_at"
+        },
+        {
+          "type": "number",
+          "name": "discstatement_id"
+        },
+        {
+          "type": "text",
+          "name": "modelType"
+        },
+        {
+          "type": "number",
+          "name": "amount"
+        },
+        {
+          "type": "number",
+          "name": "rate"
+        },
+        {
+          "type": "number",
+          "name": "fromLevel"
+        },
+        {
+          "type": "number",
+          "name": "toLevel"
+        },
+        {
+          "type": "text",
+          "name": "increment"
+        }
+      ],
+      "outputType": "array"
     }
+  },
+  "StripeMultiItem": {
+    "ds_shoppingCart": [
+      {
+        "type": "text",
+        "name": "price"
+      },
+      {
+        "type": "number",
+        "name": "quantity"
+      }
+    ],
+    "ds_shoppingCartS": [
+      {
+        "type": "text",
+        "name": "price"
+      },
+      {
+        "type": "text",
+        "name": "quantity"
+      },
+      {
+        "type": "text",
+        "name": "product_id"
+      },
+      {
+        "type": "text",
+        "name": "product_name"
+      },
+      {
+        "type": "text",
+        "name": "product_price"
+      }
+    ]
+  },
+  "StripePayment": {
+    "datastore1": [
+      {
+        "type": "text",
+        "name": "price"
+      },
+      {
+        "type": "number",
+        "name": "quantity"
+      }
+    ],
+    "form1": [
+      {
+        "type": "object",
+        "name": "data",
+        "sub": [
+          {
+            "type": "text",
+            "name": "id"
+          },
+          {
+            "type": "text",
+            "name": "object"
+          },
+          {
+            "type": "text",
+            "name": "after_expiration"
+          },
+          {
+            "type": "text",
+            "name": "allow_promotion_codes"
+          },
+          {
+            "type": "number",
+            "name": "amount_subtotal"
+          },
+          {
+            "type": "number",
+            "name": "amount_total"
+          },
+          {
+            "type": "object",
+            "name": "automatic_tax",
+            "sub": [
+              {
+                "type": "boolean",
+                "name": "enabled"
+              },
+              {
+                "type": "text",
+                "name": "status"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "name": "billing_address_collection"
+          },
+          {
+            "type": "text",
+            "name": "cancel_url"
+          },
+          {
+            "type": "text",
+            "name": "client_reference_id"
+          },
+          {
+            "type": "text",
+            "name": "consent"
+          },
+          {
+            "type": "text",
+            "name": "consent_collection"
+          },
+          {
+            "type": "text",
+            "name": "currency"
+          },
+          {
+            "type": "text",
+            "name": "customer"
+          },
+          {
+            "type": "text",
+            "name": "customer_creation"
+          },
+          {
+            "type": "text",
+            "name": "customer_details"
+          },
+          {
+            "type": "text",
+            "name": "customer_email"
+          },
+          {
+            "type": "number",
+            "name": "expires_at"
+          },
+          {
+            "type": "boolean",
+            "name": "livemode"
+          },
+          {
+            "type": "text",
+            "name": "locale"
+          },
+          {
+            "type": "object",
+            "name": "metadata"
+          },
+          {
+            "type": "text",
+            "name": "mode"
+          },
+          {
+            "type": "text",
+            "name": "payment_intent"
+          },
+          {
+            "type": "text",
+            "name": "payment_link"
+          },
+          {
+            "type": "object",
+            "name": "payment_method_options"
+          },
+          {
+            "type": "array",
+            "name": "payment_method_types",
+            "sub": [
+              {
+                "type": "text",
+                "name": "$value"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "name": "payment_status"
+          },
+          {
+            "type": "object",
+            "name": "phone_number_collection",
+            "sub": [
+              {
+                "type": "boolean",
+                "name": "enabled"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "name": "recovered_from"
+          },
+          {
+            "type": "text",
+            "name": "setup_intent"
+          },
+          {
+            "type": "text",
+            "name": "shipping"
+          },
+          {
+            "type": "text",
+            "name": "shipping_address_collection"
+          },
+          {
+            "type": "array",
+            "name": "shipping_options"
+          },
+          {
+            "type": "text",
+            "name": "shipping_rate"
+          },
+          {
+            "type": "text",
+            "name": "status"
+          },
+          {
+            "type": "text",
+            "name": "submit_type"
+          },
+          {
+            "type": "text",
+            "name": "subscription"
+          },
+          {
+            "type": "text",
+            "name": "success_url"
+          },
+          {
+            "type": "object",
+            "name": "total_details",
+            "sub": [
+              {
+                "type": "number",
+                "name": "amount_discount"
+              },
+              {
+                "type": "number",
+                "name": "amount_shipping"
+              },
+              {
+                "type": "number",
+                "name": "amount_tax"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "name": "url"
+          }
+        ]
+      }
+    ],
+    "ds_shoppingCart": [
+      {
+        "type": "text",
+        "name": "price"
+      },
+      {
+        "type": "number",
+        "name": "quantity"
+      }
+    ],
+    "form2": [
+      {
+        "type": "object",
+        "name": "data",
+        "sub": [
+          {
+            "type": "text",
+            "name": "id"
+          },
+          {
+            "type": "text",
+            "name": "object"
+          },
+          {
+            "type": "text",
+            "name": "after_expiration"
+          },
+          {
+            "type": "text",
+            "name": "allow_promotion_codes"
+          },
+          {
+            "type": "number",
+            "name": "amount_subtotal"
+          },
+          {
+            "type": "number",
+            "name": "amount_total"
+          },
+          {
+            "type": "object",
+            "name": "automatic_tax",
+            "sub": [
+              {
+                "type": "boolean",
+                "name": "enabled"
+              },
+              {
+                "type": "text",
+                "name": "status"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "name": "billing_address_collection"
+          },
+          {
+            "type": "text",
+            "name": "cancel_url"
+          },
+          {
+            "type": "text",
+            "name": "client_reference_id"
+          },
+          {
+            "type": "text",
+            "name": "consent"
+          },
+          {
+            "type": "text",
+            "name": "consent_collection"
+          },
+          {
+            "type": "text",
+            "name": "currency"
+          },
+          {
+            "type": "text",
+            "name": "customer"
+          },
+          {
+            "type": "text",
+            "name": "customer_creation"
+          },
+          {
+            "type": "text",
+            "name": "customer_details"
+          },
+          {
+            "type": "text",
+            "name": "customer_email"
+          },
+          {
+            "type": "number",
+            "name": "expires_at"
+          },
+          {
+            "type": "boolean",
+            "name": "livemode"
+          },
+          {
+            "type": "text",
+            "name": "locale"
+          },
+          {
+            "type": "object",
+            "name": "metadata"
+          },
+          {
+            "type": "text",
+            "name": "mode"
+          },
+          {
+            "type": "text",
+            "name": "payment_intent"
+          },
+          {
+            "type": "text",
+            "name": "payment_link"
+          },
+          {
+            "type": "object",
+            "name": "payment_method_options"
+          },
+          {
+            "type": "array",
+            "name": "payment_method_types",
+            "sub": [
+              {
+                "type": "text",
+                "name": "$value"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "name": "payment_status"
+          },
+          {
+            "type": "object",
+            "name": "phone_number_collection",
+            "sub": [
+              {
+                "type": "boolean",
+                "name": "enabled"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "name": "recovered_from"
+          },
+          {
+            "type": "text",
+            "name": "setup_intent"
+          },
+          {
+            "type": "text",
+            "name": "shipping"
+          },
+          {
+            "type": "text",
+            "name": "shipping_address_collection"
+          },
+          {
+            "type": "array",
+            "name": "shipping_options"
+          },
+          {
+            "type": "text",
+            "name": "shipping_rate"
+          },
+          {
+            "type": "text",
+            "name": "status"
+          },
+          {
+            "type": "text",
+            "name": "submit_type"
+          },
+          {
+            "type": "text",
+            "name": "subscription"
+          },
+          {
+            "type": "text",
+            "name": "success_url"
+          },
+          {
+            "type": "object",
+            "name": "total_details",
+            "sub": [
+              {
+                "type": "number",
+                "name": "amount_discount"
+              },
+              {
+                "type": "number",
+                "name": "amount_shipping"
+              },
+              {
+                "type": "number",
+                "name": "amount_tax"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "name": "url"
+          }
+        ]
+      }
+    ]
   }
 });

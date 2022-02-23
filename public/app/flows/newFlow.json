@@ -1,0 +1,26 @@
+{
+  meta: {
+    options: {linkedFile: "/views/StripeXanoPayment1.ejs"},
+    $param: [
+      {type: "text", name: "price"},
+      {type: "number", name: "quantity"}
+    ]
+  },
+  exec: {
+    steps: {
+      api.send: {
+        method: "POST",
+        dataType: "json",
+        data: {
+          line_items: [
+            {price: "price_1KTug0CkYyWRehNVjERTJg4K", quantity: "1"}
+          ]
+        },
+        url: "https://x8ki-letl-twmt.n7.xano.io/api:U_4KYAYD/sessions",
+        schema: [],
+        name: "api",
+        output: true
+      }
+    }
+  }
+}

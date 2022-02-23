@@ -1,0 +1,27 @@
+<!-- Wappler include head-page="layouts/admin" fontawesome_5="cdn" bootstrap5="local" is="dmx-app" id="StripePayment" appConnect="local" components="{dmxStripe:{}}" -->
+<dmx-stripe id="stripe1" key="pk_test_51KTpYoCkYyWRehNVd4knuhMT4BOGugJfVBQDzGxsUwnOukBD6TxGEF6TTSJaJIaEMibIyzejL1AAbsBm4PxUojVS00xUIU4twZ" dmx-bind:line-items="'price_1KTug0CkYyWRehNVjERTJg4K'" success-url="successPage" cancel-url="paymentCancelPage"></dmx-stripe>
+<meta name="ac:route" content="/StripePayment">
+<div class="container-fluid">
+    <div class="row">
+        <div class="col"></div>
+        <div class="col">
+            <h3 class="text-center">iPhone 13 Pro Max $1299</h3>
+        </div>
+        <div class="col"></div>
+    </div>
+    <div class="row">
+        <div class="col"></div>
+        <div class="col-5">
+            <img src="/assets/img/images.jpeg">
+            <img src="/assets/img/iphone13proMax.jpeg">
+        </div>
+        <div class="col"></div>
+    </div>
+    <div class="row">
+        <div class="col"></div>
+        <div class="col align-self-center text-center">
+            <button id="btn1" class="btn btn-primary" dmx-on:click="stripe1.checkout()">Buy Now</button>
+        </div>
+        <div class="col"></div>
+    </div>
+</div>
