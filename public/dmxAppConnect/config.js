@@ -1905,5 +1905,11 @@ dmx.config({
         ]
       }
     ]
+  },
+  "sand3": {
+    "data_view1": {
+      "meta": null,
+      "outputType": "object"
+    }
   }
 });

@@ -1,5 +1,8 @@
 {
   "admin.ejs": {
     "description": ""
+  },
+  "forPlaid.ejs": {
+    "description": "to load link widget"
   }
 }

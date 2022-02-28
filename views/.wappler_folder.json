@@ -66,5 +66,13 @@
   "sand3.ejs": {
     "layoutPage": "admin",
     "description": ""
+  },
+  "sand4.ejs": {
+    "layoutPage": "admin",
+    "description": ""
+  },
+  "sand5.ejs": {
+    "layoutPage": "forPlaid",
+    "description": ""
   }
 }
