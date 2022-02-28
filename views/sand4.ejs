@@ -1,6 +1,21 @@
 <!-- Wappler include head-page="layouts/admin" fontawesome_5="cdn" bootstrap5="local" is="dmx-app" id="sand4" appConnect="local" -->
+<dmx-value id="plaidLinkToken"></dmx-value>
+<form id="hackGetPlaidLink" is="dmx-serverconnect-form" method="post" action="/api/stripePayments/plaid_get_link_token" dmx-on:success="plaidLinkToken.setValue(hackGetPlaidLink.data.api.data.link_token)"></form>
+<script is="dmx-flow" id="getPlaidLink" type="text/dmx-flow" autorun>[
+  {
+    run: {action: "{{hackGetPlaidLink.submit()}}"}
+  },
+  {
+    wait: {delay: 5000}
+  },
+  {
+    runJS: {function: "onPageLoad", name: "opl"}
+  }
+]</script>
 <dmx-value id="var1" dmx-bind:value="'abcd'"></dmx-value>
 <dmx-value id="var2" dmx-bind:value="car.color"></dmx-value>
+<dmx-value id="plaidPublicToken" dmx-bind:value="pubTok"></dmx-value>
+<dmx-value id="plaidBankAccToken" dmx-bind:value="bankTok"></dmx-value>
 <button id="btn1" class="btn btn-primary" dmx-on:click="run({runJS:{function:'myFunction',name:'myF'}})">setDMX</button>
 <button id="btn2" class="btn btn-primary active" dmx-on:click="run({runJS:{function:'myFun2',name:'myFn2'}})">dmxParse</button>
 <meta name="ac:route" content="/sand4">
@@ -8,18 +23,22 @@
 
 <button id="link-button">Link Account</button>
 
-<p>{{car.color}}</p>
-<input id="text1" name="text1" type="text" class="form-control" dmx-bind:value="{{car.color}}">
-<input id="text2" name="text2" type="text" class="form-control" dmx-bind:value="var2.value">
+<p>{{pubTok}}</p>
+<p>{{bankTok}}</p>
+<input id="text1" name="text1" type="text" class="form-control" dmx-bind:value="plaidLinkToken.value">
+<input id="text2" name="text2" type="text" class="form-control" dmx-bind:value="plaidPublicToken.value">
+<input id="text3" name="text3" type="text" class="form-control" dmx-bind:value="plaidBankAccToken.value">
 
 <script src=" https://cdn.plaid.com/link/v2/stable/link-initialize.js"></script>
 <script type="text/javascript">
-    (async function() {
-
+    async function onPageLoad() {
+  console.log("On page load running....");
+  console.log("Link token obtained: " + dmx.parse('content.plaidLinkToken.value'));
   const configs = {
     // Pass the link_token generated in step 2.
     // token: '{{LINK_TOKEN}}',
-    token: "link-sandbox-dee08905-fe69-4102-8c83-b324a7396bdc",
+    // token: "link-sandbox-dee08905-fe69-4102-8c83-b324a7396bdc",
+    token: dmx.parse('content.plaidLinkToken.value'),
     onLoad: function() {
       // The Link module finished loading.
     },
@@ -48,6 +67,8 @@
           // Multiple Accounts is enabled: https://dashboard.plaid.com/link/account-select
       }
       // set data in dmx vars
+       dmx.app.set('pubTok', public_token);
+       dmx.app.set('bankTok', metadata.accounts[0].id);
     },
     onExit: async function(err, metadata) {
       // The user exited the Link flow.
@@ -67,7 +88,10 @@
   document.getElementById('link-button').onclick = function() {
     linkHandler.open();
   };
-})();
+  
+};
+
+// onPageLoad();
 </script>
 
 <script>
@@ -81,4 +105,12 @@
         var parseTest = dmx.parse('content.var1.value');
         console.log("parseTest: " + parseTest);
     }
+/*
+    function getPlaidLink() {
+        var linkHandler = Plaid.create(configs);
+        
+        document.getElementById('link-button').onclick = function() {
+        linkHandler.open();
+    }
+    */
 </script>
