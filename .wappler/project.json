@@ -1,5 +1,5 @@
 {
-  "projectName": "Stripe_Plaid",
+  "projectName": "stripe_plaid",
   "styleFile": "/css/style.css",
   "assetsFolder": "/assets",
   "designFramework": "bootstrap5",

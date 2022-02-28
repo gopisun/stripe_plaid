@@ -62,5 +62,9 @@
   "sand2.ejs": {
     "layoutPage": "admin",
     "description": ""
+  },
+  "sand3.ejs": {
+    "layoutPage": "admin",
+    "description": ""
   }
 }

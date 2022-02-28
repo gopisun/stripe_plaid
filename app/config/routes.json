@@ -90,6 +90,11 @@
       "path": "/sand2",
       "page": "sand2",
       "layout": "admin"
+    },
+    {
+      "path": "/sand3",
+      "page": "sand3",
+      "layout": "admin"
     }
   ]
 }

@@ -1,0 +1,82 @@
+<!-- Wappler include head-page="layouts/admin" fontawesome_5="cdn" bootstrap5="local" is="dmx-app" id="sand3" appConnect="local" -->
+<dmx-value id="v_link_tok" dmx-bind:value="'link-sandbox-f59ab129-70ef-4d11-8cde-59e90700bd44'"></dmx-value>
+<dmx-value id="v_pub_tok" dmx-bind:value="'Dummy'"></dmx-value>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <input id="text1" name="text1" type="text" class="form-control" readonly="true" dmx-bind:value="v_pub_tok.value"><button id="btn1" class="btn" dmx-on:click="run([{run:{action:`text1.setValue(content.v_pub_tok.value)`}},{runJS:{function:'setLnkTok',name:'setLnkTok'}}])">Button</button>
+        </div>
+    </div>
+</div>
+<meta name="ac:route" content="/sand3">
+
+
+
+<button id="link-button">
+    Link Account</button>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.plaid.com/link/v2/stable/link-initialize.js"></script>
+<script type="text/javascript">
+    function setLnkTok()  {
+       var lnkTok = dmx.parse('v_link_tok.value') ;
+       console.log("lnktok = " + lnkTok);
+    }
+    (async function($) {
+  var handler = Plaid.create({
+    // Create a new link_token to initialize Link
+    // token: (await $.post('/create_link_token')).link_token,
+    token: "link-sandbox-53dc2122-25cd-4b87-bb25-1cf0ad8e4c94",
+    // token: await dmx.parse('v_link_tok.value'),
+   // receivedRedirectUri: window.location.href,
+    onLoad: function() {
+      // Optional, called when Link loads
+      console.log("on load.");
+    },
+    onSuccess:  function(public_token, metadata) {
+      // Send the public_token to your app server.
+      // The metadata object contains info about the institution the
+      // user selected and the account ID or IDs, if the
+      // Account Select view is enabled.
+      console.log("on success." + public_token);
+      console.log("Metadata: " + metadata);
+      // dmx.app.set('v_pub_tok', public_token);
+       // dmx.parse(“v_pub_tok.setValue(” + public_token + “)”);
+      dmx.parse('v_pub_tok.setValue(' + public_token + ')');
+
+     /*
+      $.post('/exchange_public_token', {
+        public_token: public_token,
+      });
+      */
+    },
+    onExit: function(err, metadata) {
+      // The user exited the Link flow.
+      console.log("on exit.");
+      if (err != null) {
+        // The user encountered a Plaid API error prior to exiting.
+      }
+      // metadata contains information about the institution
+      // that the user selected and the most recent API request IDs.
+      // Storing this information can be helpful for support.
+    },
+    onEvent: function(eventName, metadata) {
+        console.log("on event." + eventName);
+        console.log("Metadata: " + metadata);
+      // Optionally capture Link flow events, streamed through
+      // this callback as your users connect an Item to Plaid.
+      // For example:
+      // eventName = "TRANSITION_VIEW"
+      // metadata  = {
+      //   link_session_id: "123-abc",
+      //   mfa_type:        "questions",
+      //   timestamp:       "2017-09-14T14:42:19.350Z",
+      //   view_name:       "MFA",
+      // }
+    }
+  });
+
+  $('#link-button').on('click', function(e) {
+    handler.open();
+  });
+})(jQuery);
+</script>
