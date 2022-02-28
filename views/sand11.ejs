@@ -1,0 +1,22 @@
+<!-- Wappler include head-page="layouts/admin" fontawesome_5="cdn" bootstrap5="local" is="dmx-app" id="sand11" appConnect="local" components="{dmxFormatter:{}}" -->
+<meta name="ac:route" content="/sand11">
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <input id="text1" name="text1" type="text" class="form-control">
+        </div>
+        <div class="col">
+            <button id="btn1" class="btn btn-primary w-75" dmx-on:click="run([{run:{action:`text1.setValue(\'Button Clicked !!!\')`}},{run:{action:`btn1.setValue(content.btn1.value+\'Just clicked\')`}},{runJS:{function:'buttonClicked',name:'fnName'}}])">Button</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    console.log("sand11 - Page loaded");
+    function buttonClicked() {
+        console.log("Button clicked...,");
+
+    }
+
+    
+</script>

@@ -1,0 +1,132 @@
+<!-- Wappler include head-page="layouts/admin" fontawesome_5="cdn" bootstrap5="local" is="dmx-app" id="sand2" appConnect="local" components="{dmxBootstrap5Alert:{},dmxBootstrap5Toasts:{}}" -->
+<script is="dmx-flow" id="flow_get_link_token" type="text/dmx-flow" autorun>{
+  run: {action: "{{form1.submit()}}"}
+}</script>
+<dmx-value id="v_link_token"></dmx-value>
+<meta name="ac:route" content="/sand2">
+<!-- New Wappler Page -->
+
+<script src="/bootstrap/5/js/bootstrap.bundle.min.js"></script>
+<script src="../../public/bootstrap/5/js/bootstrap.bundle.min.js"></script>
+<div is="dmx-bs5-toasts" id="toasts1"></div>
+<div class="alert text-danger d-print-block visually-hidden" id="alert1" is="dmx-bs5-alert" role="alert">
+    <p>This is a nice alert!</p>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-4">
+            <form id="form1" method="post" is="dmx-serverconnect-form" action="/api/stripePayments/plaid_get_link_token" dmx-on:success="text1.setValue(text1.value+'  '+form1.data.api.data.link_token);v_link_token.setValue(form1.data.api.data.link_token)"><button id="btn1" class="btn btn-primary w-75" dmx-on:click="run([{runJS:{function:'buttClickEvent',name:'buttClickEvent'}},{run:{action:`text2.setValue(v_link_token.value)`}}])">Button</button></form>
+
+        </div>
+        <div class="col">
+            <input id="text1" name="text1" type="text" class="form-control">
+            <input id="text2" name="text2" type="text" class="form-control">
+        </div>
+    </div>
+</div>
+<meta name="ac:route" content="/sand">
+<script src="https://cdn.plaid.com/link/v2/stable/link-initialize.js"></script>
+<script>
+    console.log("in the sand");
+    function buttClickEvent() {
+        console.log("From button click");
+        lnkToken = dmx.parse('v_link_token.value');
+        console.log("link token value: " + lnkToken);
+    }
+    // buttClickEvent();
+    // alert("testing !");
+/*
+    async function(){
+    var linkHandler = Plaid.create({
+    // Make a request to your server to fetch a new link_token.
+    token: dmx.parse('v_link_token.value'),
+    onLoad: function() {
+    // The Link module finished loading.
+    },
+    onSuccess: function(public_token, metadata) {
+    // The onSuccess function is called when the user has
+    // successfully authenticated and selected an account to
+    // use.
+    //
+    // When called, you will send the public_token
+    // and the selected account ID, metadata.account_id,
+    // to your backend app server.
+    //
+    // sendDataToBackendServer({
+    // public_token: public_token,
+    // account_id: metadata.account_id
+    // });
+    console.log('Public Token: ' + public_token);
+    console.log('Customer-selected account ID: ' + metadata.account_id);
+    },
+    onExit: function(err, metadata) {
+    // The user exited the Link flow.
+    if (err != null) {
+    // The user encountered a Plaid API error
+    // prior to exiting.
+    }
+    // metadata contains information about the institution
+    // that the user selected and the most recent
+    // API request IDs.
+    // Storing this information can be helpful for support.
+    },
+    });
+    }();
+*/
+    // test function
+    function abcd() {
+    console.log("Testing function call from app flow");
+    }
+</script>
+
+<!--
+    <script src="https://cdn.plaid.com/link/v2/stable/link-initialize.js"></script>
+<script>
+    (async function(){
+    var linkHandler = Plaid.create({
+      // Make a request to your server to fetch a new link_token.
+      token: (await $.post('/create_link_token')).link_token,
+      onLoad: function() {
+          // The Link module finished loading.
+      },
+      onSuccess: function(public_token, metadata) {
+        // The onSuccess function is called when the user has
+        // successfully authenticated and selected an account to
+        // use.
+        //
+        // When called, you will send the public_token
+        // and the selected account ID, metadata.account_id,
+        // to your backend app server.
+        //
+        // sendDataToBackendServer({
+        //   public_token: public_token,
+        //   account_id: metadata.account_id
+        // });
+        console.log('Public Token: ' + public_token);
+        console.log('Customer-selected account ID: ' + metadata.account_id);
+      },
+      onExit: function(err, metadata) {
+        // The user exited the Link flow.
+        if (err != null) {
+            // The user encountered a Plaid API error
+            // prior to exiting.
+        }
+        // metadata contains information about the institution
+        // that the user selected and the most recent
+        // API request IDs.
+        // Storing this information can be helpful for support.
+      },
+    });
+  })();
+
+  // Trigger the authentication view
+  document.getElementById('linkButton').onclick = function() {
+    linkHandler.open();
+  };
+
+  // test function
+  function abcd() {
+      console.log("Testing function call from app flow");
+  }
+</script>
+    -->

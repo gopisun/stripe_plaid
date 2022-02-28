@@ -1,11 +1,11 @@
 {
   "direct": true,
-  "type": "postgres",
+  "type": "mysql",
   "connection": {
     "host": "localhost",
     "port": 9906,
-    "user": "db_user",
-    "password": "ISTWApZo",
+    "user": "root",
+    "password": "zw3Pi4J7",
     "database": "globalroamweb"
   },
   "schema": {

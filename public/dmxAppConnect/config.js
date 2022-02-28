@@ -1434,11 +1434,23 @@ dmx.config({
     "ds_shoppingCart": [
       {
         "type": "text",
-        "name": "price"
+        "name": "title"
+      },
+      {
+        "type": "number",
+        "name": "amount"
+      },
+      {
+        "type": "text",
+        "name": "currency"
       },
       {
         "type": "number",
         "name": "quantity"
+      },
+      {
+        "type": "text",
+        "name": "product_id"
       }
     ],
     "ds_shoppingCartS": [

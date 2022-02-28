@@ -54,41 +54,6 @@
       "name": "getOneAgree"
     },
     {
-      "path": "/operators",
-      "page": "operators",
-      "layout": "admin"
-    },
-    {
-      "path": "/services",
-      "page": "services3",
-      "layout": "admin"
-    },
-    {
-      "path": "/regions",
-      "page": "regions",
-      "layout": "admin"
-    },
-    {
-      "path": "/DiscountAgreements",
-      "page": "DiscountAgreements",
-      "layout": "admin"
-    },
-    {
-      "path": "/Settlements",
-      "page": "Settlements",
-      "layout": "admin"
-    },
-    {
-      "path": "/MasterDetailrough",
-      "page": "MasterDetailrough4",
-      "layout": "admin"
-    },
-    {
-      "path": "/sandbox",
-      "page": "sandbox",
-      "layout": "admin"
-    },
-    {
       "path": "/StripePayment",
       "page": "StripePayment",
       "layout": "admin"
@@ -101,6 +66,29 @@
     {
       "path": "/StripeMultiItem",
       "page": "StripeMultiItem",
+      "layout": "admin"
+    },
+    {
+      "path": "/StripeCustomProducts",
+      "url": "",
+      "routeType": "page",
+      "page": "StripeCustomProd",
+      "layout": "admin"
+    },
+    {
+      "path": "/StripeCustomCheckout",
+      "page": "StripeCustomCheckout",
+      "layout": "admin",
+      "exec": "/api/stripePayments/stripe_custom_checkout"
+    },
+    {
+      "path": "/sand11",
+      "page": "sand11",
+      "layout": "admin"
+    },
+    {
+      "path": "/sand2",
+      "page": "sand2",
       "layout": "admin"
     }
   ]

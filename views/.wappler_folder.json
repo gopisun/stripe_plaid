@@ -46,5 +46,21 @@
   "stripeShoppingCart.ejs": {
     "layoutPage": "admin",
     "description": ""
+  },
+  "StripeCustomCheckout.ejs": {
+    "layoutPage": "admin",
+    "description": ""
+  },
+  "CustomMandateInfo.ejs": {
+    "layoutPage": "admin",
+    "description": "Used for ACH debit with stripe to display custom mandate info"
+  },
+  "sand11.ejs": {
+    "layoutPage": "admin",
+    "description": ""
+  },
+  "sand2.ejs": {
+    "layoutPage": "admin",
+    "description": ""
   }
 }

@@ -1,0 +1,67 @@
+{
+  "name": "api",
+  "module": "api",
+  "action": "send",
+  "options": {
+    "data": {
+      "client_id": "{{plaid_cli}}",
+      "secret": "{{plaid_sk}}",
+      "client_name": "Verizon1",
+      "country_codes": [
+        "US"
+      ],
+      "language": "en",
+      "user": {
+        "client_user_id": "unique_user_id"
+      },
+      "products": [
+        "auth"
+      ]
+    },
+    "dataType": "json",
+    "method": "POST",
+    "url": "https://{{plaid_env_url}}/link/token/create",
+    "schema": [
+      {
+        "type": "object",
+        "name": "data",
+        "sub": [
+          {
+            "type": "text",
+            "name": "expiration"
+          },
+          {
+            "type": "text",
+            "name": "link_token"
+          },
+          {
+            "type": "text",
+            "name": "request_id"
+          }
+        ]
+      }
+    ]
+  },
+  "output": true,
+  "meta": [
+    {
+      "type": "object",
+      "name": "data",
+      "sub": [
+        {
+          "type": "text",
+          "name": "expiration"
+        },
+        {
+          "type": "text",
+          "name": "link_token"
+        },
+        {
+          "type": "text",
+          "name": "request_id"
+        }
+      ]
+    }
+  ],
+  "outputType": "object"
+}

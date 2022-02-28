@@ -14,8 +14,4 @@ WORKDIR /opt/node_app
 COPY index.js .
 COPY package.json .
 RUN npm install --no-optional
-
-ENV TZ=America/New_York
-RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
-
 CMD [ "nodemon", "./index.js" ]

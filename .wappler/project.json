@@ -1,5 +1,5 @@
 {
-  "projectName": "GlobalRoamWeb",
+  "projectName": "Stripe_Plaid",
   "styleFile": "/css/style.css",
   "assetsFolder": "/assets",
   "designFramework": "bootstrap5",
@@ -27,10 +27,26 @@
   "targets": [
     {
       "name": "Development",
-      "remoteURL": "http://localhost:3000",
-      "access": "local",
-      "localFolder": "file:///Users/v609867/Training/WapplerProj/GlobalRoamSett",
-      "targetType": "wappler"
+      "remoteURL": "http://localhost:8100",
+      "targetType": "docker",
+      "webLoggingMaxFiles": "5",
+      "webLoggingMaxFileSize": "10m",
+      "databaseLoggingMaxFiles": "5",
+      "databaseLoggingMaxFileSize": "10m",
+      "webServerPort": 8100,
+      "webServerLang": "node",
+      "databaseType": "mysql",
+      "databasePort": 9906,
+      "mySQLVersion": "8.0.x",
+      "mySQL_rootPassword": "zw3Pi4J7",
+      "mySQL_databaseName": "globalroamweb",
+      "mySQL_username": "db_user",
+      "mySQL_password": "OqFiS7IG",
+      "dockerTimezone": "Etc/UTC",
+      "webServer": "node",
+      "NodeVersion": "12",
+      "NodeOS": "buster",
+      "NodeImageType": "slim"
     }
   ],
   "activeTarget": "Development",

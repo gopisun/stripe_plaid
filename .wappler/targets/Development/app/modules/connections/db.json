@@ -3,13 +3,13 @@
   "module": "dbconnector",
   "action": "connect",
   "options": {
-    "client": "postgres",
+    "client": "mysql",
     "connection": {
       "host": "db",
-      "port": 5432,
+      "port": 3306,
       "user": "db_user",
-      "password": "ISTWApZo",
-      "database": "GlobalRoam"
+      "password": "OqFiS7IG",
+      "database": "globalroamweb"
     }
   }
 }

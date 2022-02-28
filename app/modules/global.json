@@ -1,0 +1,35 @@
+[
+  {
+    "name": "plaid_cli",
+    "module": "core",
+    "action": "setvalue",
+    "options": {
+      "key": "g_plaid_cli",
+      "value": "61e6c6f257475e001ae4f428"
+    },
+    "meta": [],
+    "outputType": "text"
+  },
+  {
+    "name": "plaid_sk",
+    "module": "core",
+    "action": "setvalue",
+    "options": {
+      "key": "g_plaid_sk",
+      "value": "84ae9f3f0e21c8453bf7fb78b0876d"
+    },
+    "meta": [],
+    "outputType": "text"
+  },
+  {
+    "name": "plaid_env_url",
+    "module": "core",
+    "action": "setvalue",
+    "options": {
+      "key": "g_plaid_env_url",
+      "value": "sandbox.plaid.com"
+    },
+    "meta": [],
+    "outputType": "text"
+  }
+]

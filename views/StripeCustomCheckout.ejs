@@ -1,0 +1,81 @@
+<dmx-stripe id="stripe_custom" key="pk_test_51KTpYoCkYyWRehNVd4knuhMT4BOGugJfVBQDzGxsUwnOukBD6TxGEF6TTSJaJIaEMibIyzejL1AAbsBm4PxUojVS00xUIU4twZ" dmx-bind:line-items="" checkout="server"></dmx-stripe><!-- Wappler include head-page="layouts/admin" fontawesome_5="cdn" bootstrap5="local" is="dmx-app" id="StripeCustomCheckout" appConnect="local" components="{dmxStripe:{},dmxBootstrap5Toasts:{}}" -->
+<div is="dmx-bs5-toasts" id="toast_pmtMsg"></div>
+<meta name="ac:route" content="/StripeCustomCheckout">
+<script src="https://js.stripe.com/v3/" defer=""></script>
+<script src="/dmxAppConnect/dmxStripe/dmxStripe.js" defer=""></script>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h3>Stripe Custom Checkout Form</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <form id="form_stripeCheckout" method="post" is="dmx-stripe-checkout-form" action="/api/stripePayments/stripe_custom_checkout" success-url="/successPage" dmx-on:success="toast_pmtMsg.show({message: 'Payment Processed Successfully !', delay: 10000, title: 'SUCCESS', subtitle: 'custom checkout'})" dmx-on:error="toast_pmtMsg.show({message: 'Error Occured:  '+error, delay: 20000})">
+                <div class="row">
+                    <div class="col">
+                        <div class="mb-3">
+                            <label for="inp_firstName" class="form-label">First Name</label>
+                            <input type="text" class="form-control" id="inp_firstName" name="firstName" aria-describedby="input1_help" placeholder="Enter First Name">
+                            <small id="input1_help" class="form-text text-muted">Your input is very valuable.</small>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="mb-3">
+                            <label for="inp_lastName" class="form-label">Last Name</label>
+                            <input type="text" class="form-control" id="inp_lastName" name="lastName" aria-describedby="input1_help" placeholder="Enter Last Name">
+                            <small id="input1_help" class="form-text text-muted">Your input is very valuable.</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <div class="mb-3">
+                            <label for="inp_address" class="form-label" id="label_address">Address</label>
+                            <input type="text" class="form-control" id="inp_address" name="address" aria-describedby="input1_help" placeholder="Enter street ">
+                            <small id="input1_help1" class="form-text text-muted">Your input is very valuable.</small>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="mb-3">
+                            <label for="inp_city" class="form-label">City</label>
+                            <input type="text" class="form-control" id="inp_city" name="city" aria-describedby="input1_help" placeholder="Enter City">
+                            <small id="input1_help1" class="form-text text-muted">Your input is very valuable.</small>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="mb-3">
+                            <label for="inp_zip" class="form-label">Zip</label>
+                            <input type="text" class="form-control" id="inp_zip" name="zip" aria-describedby="input1_help" placeholder="Enter zip">
+                            <small id="input1_help2" class="form-text text-muted">Your input is very valuable.</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="inp_paymentAmt" class="form-label">Payment Amount - USD</label>
+                    <input type="number" class="form-control" id="inp_paymentAmt" name="paymountAmt" aria-describedby="input2_help" placeholder="Enter Paymount Amount">
+                    <small id="input2_help" class="form-text text-muted">Your input is very valuable.</small>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <div class="mb-3">
+                            <label for="input1">Stripe Payment Method</label>
+                            <dmx-stripe-payment-method id="input1" payment-methods="alipay,card"></dmx-stripe-payment-method>
+                        </div>
+                        <div class="mb-3">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <button id="btn2" class="btn btn-primary" type="submit">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- New Wappler Page -->
